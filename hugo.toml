@@ -1,0 +1,5 @@
+baseURL = 'http://localhost:1313/'
+locale = 'es-co'
+defaultContentLanguage = 'es'
+title = 'Saga Económica'
+theme = 'PaperMod'
