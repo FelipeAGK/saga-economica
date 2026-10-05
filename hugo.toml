@@ -3,3 +3,31 @@ locale = 'es-co'
 defaultContentLanguage = 'es'
 title = 'Saga Económica'
 theme = 'PaperMod'
+
+[params]
+  mainSections = ['analisis', 'boletin', 'datos', 'video']
+
+[[menu.main]]
+  name = 'Análisis'
+  url = '/analisis/'
+  weight = 1
+
+[[menu.main]]
+  name = 'Boletín'
+  url = '/boletin/'
+  weight = 2
+
+[[menu.main]]
+  name = 'Datos'
+  url = '/datos/'
+  weight = 3
+
+[[menu.main]]
+  name = 'Video'
+  url = '/video/'
+  weight = 4
+
+[[menu.main]]
+  name = 'Acerca'
+  url = '/acerca/'
+  weight = 5
