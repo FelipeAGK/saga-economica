@@ -3,8 +3,22 @@ date = '2026-10-05T14:30:00-05:00'
 draft = true
 title = 'Los ingresos subieron. El gasto subió más.'
 slug = 'ingresos-y-gasto-gnc'
+resaltado = 'El gasto subió más.'
 summary = 'Veinte años de cuentas del Gobierno Nacional Central en una sola imagen: el recaudo creció 2,8 puntos del PIB desde 2005 y el gasto sin intereses creció 5,3. La brecha no se cerró ni en el mejor año de recaudo de toda la serie.'
 tags = ['fiscal', 'gnc', 'deficit', 'series-historicas']
+tema = 'Finanzas públicas'
+datos = 'ingresos-gasto-gnc.csv'
+
+[ficha]
+fuente = 'MinHacienda · Banco de la República'
+deflactor = 'DANE'
+metodologia = 'Caja, totales anuales'
+cobertura = '2005–2025'
+
+[validacion]
+contra = 'ESPE 90 y Borrador de Economía 1136 del Banco de la República'
+cifra = '≤ 0,2 pp'
+alcance = 'de diferencia en ingresos, gastos y balance total'
 +++
 
 Buena parte de la discusión fiscal colombiana se juega sobre una premisa que
@@ -109,9 +123,3 @@ vigente; 2026 solo tiene seis meses.
 **Los años recientes son provisionales.** El PIB nominal de los últimos
 ejercicios es preliminar y se revisa, lo que mueve ligeramente todas las
 razones calculadas sobre él.
-
----
-
-Los datos de los dos gráficos están disponibles en
-[formato CSV](ingresos-gasto-gnc.csv), con las tres series anuales en
-porcentaje del PIB.

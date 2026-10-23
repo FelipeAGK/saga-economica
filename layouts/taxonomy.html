@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+    </header>
+    <ul class="etiquetas">
+      {{- range .Pages }}
+      <li><a class="etiqueta" href="{{ .RelPermalink }}">{{ .Title }} <span>{{ len .Pages }}</span></a></li>
+      {{- end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

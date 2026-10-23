@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+      {{- with .Description }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
+      {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+    </header>
+    {{- range .Pages }}
+    {{ partial "tarjeta.html" . }}
+    {{- else }}
+    <p class="vacio">Esta sección todavía no tiene piezas publicadas.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

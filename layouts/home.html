@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="portada">
+  <div class="portada__interior">
+    <p class="portada__lema">{{ site.Params.lema }}</p>
+    <h1 class="portada__titulo">{{ site.Params.descripcion }}</h1>
+    {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+  </div>
+</section>
+<section class="listado">
+  <div class="listado__interior">
+    <h2 class="listado__titulo">Lo más reciente</h2>
+    {{- $paginas := where site.RegularPages "Section" "in" site.Params.mainSections }}
+    {{- range first 10 $paginas }}
+    {{ partial "tarjeta.html" . }}
+    {{- else }}
+    <p class="vacio">Todavía no hay piezas publicadas.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{- $conRail := or .Params.ficha .Params.validacion .Params.datos .Params.autor }}
+<article class="pieza{{ if $conRail }} pieza--con-rail{{ end }}">
+  <header class="pieza__cabecera">
+    <div class="pieza__interior">
+      <p class="pieza__meta">
+        {{- with .Site.GetPage .Section }}<span class="rotulo rotulo--lleno">{{ .Title }}</span>{{ end }}
+        {{- with .Params.tema }}<span class="rotulo rotulo--suave">{{ . }}</span>{{ end }}
+        {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ end }}
+      </p>
+      {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
+      <h1 class="pieza__titulo">{{ $t | safeHTML }}</h1>
+      {{- with .Params.summary }}<p class="pieza__resumen">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  <div class="pieza__interior pieza__cuerpo">
+    <div class="prosa">
+      {{ .Content }}
+    </div>
+    {{- if $conRail }}
+    <aside class="rail" aria-label="Ficha de la pieza">
+      {{ partial "firma.html" . }}
+      {{ partial "rail.html" . }}
+    </aside>
+    {{- end }}
+  </div>
+  {{- with .Params.tags }}
+  <footer class="pieza__interior pieza__pie">
+    <p class="etiquetas-linea">
+      <span class="rotulo">Etiquetas</span>
+      {{- range . }}<a class="etiqueta" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>{{ end }}
+    </p>
+  </footer>
+  {{- end }}
+</article>
+{{ end }}

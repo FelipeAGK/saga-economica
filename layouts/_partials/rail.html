@@ -1,0 +1,28 @@
+{{- with .Params.ficha }}
+<section class="rail__bloque rail__bloque--ficha">
+  <h2 class="rail__rotulo">Ficha técnica</h2>
+  <dl class="ficha">
+    {{- with .fuente }}<div><dt>Fuente primaria</dt><dd>{{ . }}</dd></div>{{ end }}
+    {{- with .deflactor }}<div><dt>Deflactor y PIB</dt><dd>{{ . }}</dd></div>{{ end }}
+    {{- with .metodologia }}<div><dt>Metodología</dt><dd>{{ . }}</dd></div>{{ end }}
+    {{- with .cobertura }}<div><dt>Cobertura</dt><dd>{{ . }}</dd></div>{{ end }}
+  </dl>
+</section>
+{{- end }}
+{{- with .Params.validacion }}
+<section class="rail__bloque rail__bloque--validacion">
+  <h2 class="rail__rotulo">Validación</h2>
+  {{- with .contra }}<p>Contrastado contra {{ . }}.</p>{{ end }}
+  {{- with .cifra }}<p class="validacion__cifra">{{ . }}</p>{{ end }}
+  {{- with .alcance }}<p class="validacion__alcance">{{ . }}</p>{{ end }}
+  <a href="#como-se-construyeron-estas-cifras">Ver nota metodológica</a>
+</section>
+{{- end }}
+{{- with .Params.datos }}
+{{- with $.Resources.Get . }}
+<section class="rail__bloque rail__bloque--datos">
+  <h2 class="rail__rotulo">Datos abiertos</h2>
+  <p>Las series de esta pieza, en formato abierto.</p>
+  <a class="boton" href="{{ .RelPermalink }}" download>Descargar CSV <span class="boton__peso">({{ .Content | len | lang.FormatNumber 0 }} bytes)</span></a>
+</section>
+{{- end }}{{ end }}

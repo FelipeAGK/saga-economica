@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body class="{{ .Kind }}{{ with .Section }} seccion-{{ . }}{{ end }}">
+{{ partial "encabezado.html" . }}
+<main id="contenido">
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "pie.html" . }}
+</body>
+</html>

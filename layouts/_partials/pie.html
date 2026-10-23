@@ -1,0 +1,19 @@
+<footer class="pie">
+  <div class="pie__interior">
+    <div class="pie__col">
+      <p class="pie__marca">Saga Económica{{ with site.Params.ciudad }} · {{ . }}{{ end }}</p>
+      <p class="pie__lema">{{ site.Params.lema }}</p>
+    </div>
+    <div class="pie__col">
+      <p class="pie__estandar">Fuentes primarias, series completas y datos descargables. <a href="{{ "/acerca/" | relURL }}">Cómo trabajamos</a>.</p>
+    </div>
+    <nav class="pie__redes" aria-label="Redes">
+      {{- with site.Params.redes }}
+      {{- with .instagram }}<a href="{{ . }}" rel="me noopener">Instagram</a>{{ end }}
+      {{- with .youtube }}<a href="{{ . }}" rel="me noopener">YouTube</a>{{ end }}
+      {{- with .linkedin }}<a href="{{ . }}" rel="me noopener">LinkedIn</a>{{ end }}
+      {{- end }}
+      {{- with .OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">RSS</a>{{ end }}
+    </nav>
+  </div>
+</footer>

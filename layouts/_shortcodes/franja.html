@@ -1,0 +1,3 @@
+{{- /* Franja lila sobre una frase, el recurso de marca de Saga.
+       Uso: {{< franja >}}El gasto subió más.{{< /franja >}} */ -}}
+<mark>{{ .Inner | markdownify | safeHTML }}</mark>

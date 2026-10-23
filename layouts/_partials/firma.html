@@ -1,0 +1,18 @@
+{{- /* La firma se pinta SOLO si el articulo declara autor en su front matter.
+       Cuando haya invitados, data/autores.yaml guarda nombre, presentacion y
+       reconocimientos, y aqui se buscan por clave. Hoy: sin firma. */ -}}
+{{- with .Params.autor }}
+{{- $a := index site.Data.autores . }}
+<section class="rail__bloque rail__bloque--firma">
+  <h2 class="rail__rotulo">Firma</h2>
+  {{- with $a }}
+  <p class="firma__nombre">{{ .nombre }}</p>
+  {{- with .presentacion }}<p class="firma__texto">{{ . }}</p>{{ end }}
+  {{- with .reconocimientos }}
+  <ul class="firma__lista">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  {{- end }}
+  {{- else }}
+  <p class="firma__nombre">{{ . }}</p>
+  {{- end }}
+</section>
+{{- end }}

@@ -1,0 +1,10 @@
+{{- /* Una entrada en un listado: seccion, titulo, resumen, fecha */ -}}
+<article class="tarjeta">
+  <p class="tarjeta__meta">
+    <span class="rotulo">{{ with .Site.GetPage .Section }}{{ .Title }}{{ end }}</span>
+    {{- with .Params.tema }}<span class="rotulo rotulo--suave">{{ . }}</span>{{ end }}
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+  </p>
+  <h2 class="tarjeta__titulo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{- with .Params.summary }}<p class="tarjeta__resumen">{{ . }}</p>{{ end }}
+</article>

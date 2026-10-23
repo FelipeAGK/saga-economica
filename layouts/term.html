@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <p class="rotulo">Etiqueta</p>
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+    </header>
+    {{- range .Pages }}
+    {{ partial "tarjeta.html" . }}
+    {{- end }}
+  </div>
+</section>
+{{ end }}

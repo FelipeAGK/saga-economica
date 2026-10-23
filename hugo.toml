@@ -2,10 +2,30 @@ baseURL = 'http://localhost:1313/'
 locale = 'es-co'
 defaultContentLanguage = 'es'
 title = 'Saga Económica'
-theme = 'PaperMod'
+enableRobotsTXT = true
 
 [params]
+  descripcion = 'Análisis de la economía colombiana a partir de las cifras oficiales: fuentes primarias, series completas y el método a la vista.'
+  lema = 'Análisis profundo más allá de la viralidad'
+  ciudad = 'Bogotá'
   mainSections = ['analisis', 'boletin', 'datos', 'video']
+
+  [params.redes]
+    instagram = 'https://www.instagram.com/sagaeconomica/'
+    youtube = 'https://www.youtube.com/@angelicamgomezb'
+    linkedin = 'https://www.linkedin.com/in/angelica-maria-gomez/'
+
+[taxonomies]
+  tag = 'tags'
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = false
+  [markup.goldmark.parser.attribute]
+    block = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
 
 [[menu.main]]
   name = 'Análisis'
