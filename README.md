@@ -72,3 +72,21 @@ llama distinto, cambiar el `href` en `rail.html`.
 Texto pequeño en Lila `#7C3AED` sobre Noche Profunda falla WCAG AA (3,4:1): usar
 Violeta `#9D5CF5` o Lavanda. Dorado `#E8C547` solo sobre Noche Profunda (11,6:1);
 sobre lavanda es ilegible (1,4:1). Los tokens viven en `:root` de `saga.css`.
+
+## Glosario
+
+Los términos viven en `data/glosario.yaml`, una entrada por término (el formato
+está explicado en la cabecera del archivo). La página `/glosario/` se arma sola
+desde ahí, en orden alfabético por clave.
+
+Regla editorial: **un término entra cuando un análisis publicado lo usa**, y su
+campo `origen` apunta a ese análisis (por URL pública, p. ej.
+`/analisis/ingresos-y-gasto-gnc/`).
+
+En el texto, solo la **primera** aparición de cada término se enlaza:
+
+- `{{< termino "gasto-primario" />}}` → escribe «Gasto primario» (con la barra final).
+- `{{< termino "gasto-primario" >}}gasto primario{{< /termino >}}` → escribe tu texto.
+
+Una clave mal escrita **detiene la compilación** y dice archivo y línea. Es a
+propósito: un enlace roto al glosario no llega a publicarse.

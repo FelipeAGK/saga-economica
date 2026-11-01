@@ -1,0 +1,75 @@
+# Glosario de Saga Económica.
+# Una entrada por término. La clave (minúsculas-con-guiones) es el ancla en
+# /glosario/ y lo que se escribe en el shortcode: {{< termino "gasto-primario" />}}.
+# Regla: un término entra cuando un análisis publicado lo usa; `origen` dice cuál.
+#
+# termino:     cómo se escribe, con tildes y mayúsculas
+# corta:       una línea; aparece al pasar el cursor sobre el término en un artículo
+# definicion:  el párrafo completo de la página del glosario
+# en_colombia: la cifra que lo aterriza (opcional)
+# origen:      ruta de la pieza que lo introdujo
+# ver:         claves de términos relacionados (opcional)
+
+gnc:
+  termino: Gobierno Nacional Central (GNC)
+  corta: Los ministerios y entidades nacionales que se financian con el Presupuesto General de la Nación.
+  definicion: >-
+    Es el núcleo del Estado en el nivel nacional: los ministerios, los
+    departamentos administrativos y las entidades nacionales que se financian
+    con el Presupuesto General de la Nación. No incluye a departamentos y
+    municipios, a las empresas públicas ni al sistema de seguridad social, que
+    llevan cuentas propias. Cuando se habla del déficit o de la deuda «del
+    Gobierno», casi siempre se habla del GNC.
+  en_colombia: Su deuda bruta pasó de 32,7 % del PIB en 2012 a 62,9 % en 2025.
+  origen: /analisis/ingresos-y-gasto-gnc/
+  ver: [gasto-primario, balance-primario]
+
+gasto-primario:
+  termino: Gasto primario
+  corta: Todo lo que gasta el Gobierno, menos los intereses de la deuda.
+  definicion: >-
+    Es el gasto total menos lo que se paga en intereses de la deuda. Separa
+    las decisiones del presente —nómina, transferencias, inversión,
+    subsidios— del costo de las deudas del pasado. Por eso es la medida más
+    directa de cuánto decide gastar un gobierno en un año dado.
+  en_colombia: 19,9 % del PIB en 2025, frente a 14,6 % en 2005.
+  origen: /analisis/ingresos-y-gasto-gnc/
+  ver: [balance-primario, gnc]
+
+balance-primario:
+  termino: Balance primario
+  corta: Ingresos menos gasto primario. Dice si el Gobierno cubre su gasto antes de pagar intereses.
+  definicion: >-
+    Es la diferencia entre lo que el Gobierno recibe y su gasto primario. Si es
+    positivo (superávit primario), los ingresos alcanzan para todo el gasto
+    corriente y sobra algo para pagar intereses. Si es negativo (déficit
+    primario), el Gobierno se endeuda incluso antes de contar el costo de la
+    deuda que ya tiene. Es el indicador que más se mira para saber si una
+    deuda pública es sostenible.
+  en_colombia: Fue de −3,6 % del PIB en 2025, el sexto año seguido en déficit.
+  origen: /analisis/ingresos-y-gasto-gnc/
+  ver: [gasto-primario]
+
+metodologia-de-caja:
+  termino: Metodología de caja
+  corta: Registra una operación cuando el dinero efectivamente entra o sale.
+  definicion: >-
+    Es una forma de llevar las cuentas públicas que anota cada ingreso o gasto
+    en el momento en que la plata se mueve. Es útil para seguir la liquidez
+    del Gobierno mes a mes, pero puede mostrar saltos que no reflejan
+    decisiones de fondo: un pago atrasado, un adelanto o una operación de
+    tesorería mueven la cifra del mes aunque no cambien la obligación.
+  origen: /analisis/ingresos-y-gasto-gnc/
+  ver: [causacion]
+
+causacion:
+  termino: Causación
+  corta: Registra una operación cuando nace la obligación o el derecho, aunque el pago llegue después.
+  definicion: >-
+    Es la forma de llevar las cuentas que anota un ingreso o un gasto cuando
+    se genera, no cuando se paga. Unos intereses se «causan» a medida que
+    corre el tiempo, aunque se paguen al vencimiento. Por eso las cifras
+    oficiales para evaluar la sostenibilidad de la deuda usan causación: miden
+    el costo real del periodo, sin el ruido de las fechas de pago.
+  origen: /analisis/ingresos-y-gasto-gnc/
+  ver: [metodologia-de-caja]

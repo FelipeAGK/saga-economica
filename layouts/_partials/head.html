@@ -25,7 +25,8 @@
 {{- range .Params.tags }}
 <meta property="article:tag" content="{{ . }}">
 {{- end }}{{ end }}
-<link rel="icon" href="{{ "img/saga-isotipo-64.png" | relURL }}" sizes="64x64">
+<link rel="icon" href="{{ "img/saga-isotipo.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "img/saga-isotipo-64.png" | relURL }}" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="{{ "img/saga-isotipo-192.png" | relURL }}">
 {{- with .OutputFormats.Get "rss" }}
 <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">

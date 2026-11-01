@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{- $g := hugo.Data.glosario }}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+      {{- with .Params.summary }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
+      {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+    </header>
+    <nav class="glosario__indice" aria-label="Términos">
+      {{- range $clave, $t := $g }}<a href="#{{ $clave }}">{{ $t.termino }}</a>{{ end }}
+    </nav>
+    <dl class="glosario">
+      {{- range $clave, $t := $g }}
+      <div class="glosario__entrada" id="{{ $clave }}">
+        <dt>{{ $t.termino }}</dt>
+        <dd>
+          <p>{{ $t.definicion }}</p>
+          {{- with $t.en_colombia }}<p class="glosario__cifra"><span class="rotulo">En Colombia</span> {{ . }}</p>{{ end }}
+          <p class="glosario__pie">
+            {{- with $t.origen }}{{ with index (where site.Pages "RelPermalink" .) 0 }}<span>Aparece en <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>{{ end }}{{ end }}
+            {{- with $t.ver }}<span>Ver también:
+              {{- range $i, $v := . }}{{ with index $g $v }}{{ if $i }},{{ end }} <a href="#{{ $v }}">{{ .termino }}</a>{{ end }}{{ end }}</span>{{ end }}
+          </p>
+        </dd>
+      </div>
+      {{- end }}
+    </dl>
+  </div>
+</section>
+{{ end }}

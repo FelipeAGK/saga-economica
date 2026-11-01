@@ -1,0 +1,11 @@
+{{- /* Enlaza un término del glosario. Uso:
+         {{< termino "gasto-primario" />}}            → escribe el término tal cual
+         {{< termino "gasto-primario" >}}texto{{< /termino >}} → escribe «texto»
+       Si la clave no existe en data/glosario.yaml, la compilación FALLA con
+       aviso: así un error de tipeo no llega a publicarse. */ -}}
+{{- $clave := .Get 0 }}
+{{- $t := index hugo.Data.glosario $clave }}
+{{- if not $t }}{{ errorf "termino: %q no está en data/glosario.yaml (%s)" $clave .Position }}{{ end }}
+{{- $texto := cond (gt (len (trim .Inner " \n")) 0) (.Inner | .Page.RenderString) $t.termino }}
+<a class="termino" href="{{ printf "/glosario/#%s" $clave | relURL }}" title="{{ $t.corta }}">{{ $texto }}</a>
+{{- /**/ -}}

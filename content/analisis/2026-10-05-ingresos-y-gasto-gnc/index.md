@@ -33,11 +33,11 @@ que muestran no favorece a ninguna del todo, pero sí ordena las magnitudes.
 
 ![Ingresos y gasto primario del Gobierno Nacional Central como porcentaje del PIB, 2005-2025](ingresos-gasto-primario.svg)
 
-Los ingresos del Gobierno Nacional Central pasaron de **13,5% del PIB en 2005 a
+Los ingresos del {{< termino "gnc" >}}Gobierno Nacional Central{{< /termino >}} pasaron de **13,5% del PIB en 2005 a
 16,3% en 2025**: 2,8 puntos más en veinte años. No es estancamiento. Es un
 crecimiento lento pero sostenido, con reformas tributarias de por medio.
 
-El gasto primario —el gasto total menos los intereses de la deuda— pasó de
+El {{< termino "gasto-primario" >}}gasto primario{{< /termino >}} —el gasto total menos los intereses de la deuda— pasó de
 **14,6% a 19,9% del PIB** en el mismo periodo: 5,3 puntos. Casi el doble.
 
 Hasta 2019 las dos líneas se persiguen. La brecha entre ellas se mantiene
@@ -60,7 +60,7 @@ Los ingresos se recuperaron. Más que eso: **2023 fue el mejor año de recaudo d
 toda la serie**, con 18,7% del PIB, dos puntos por encima del promedio de las
 dos décadas anteriores.
 
-Y aun así el balance primario de 2023 fue negativo: −0,35% del PIB. En el año
+Y aun así el {{< termino "balance-primario" >}}balance primario{{< /termino >}} de 2023 fue negativo: −0,35% del PIB. En el año
 de mayor recaudo registrado, el Gobierno todavía gastó más de lo que recibió,
 sin contar un solo peso de intereses.
 
@@ -70,7 +70,7 @@ brecha es de 3,6 puntos del PIB y lleva seis años consecutivos sin cerrarse: la
 racha de déficit primario más larga de la serie.
 
 Conviene insistir en que todo esto excluye los intereses. El déficit total es
-mayor. En 2025, en metodología de caja, fue de 107,6 billones de pesos. Y la
+mayor. En 2025, en {{< termino "metodologia-de-caja" >}}metodología de caja{{< /termino >}}, fue de 107,6 billones de pesos. Y la
 deuda bruta del Gobierno Nacional Central pasó de 32,7% del PIB en 2012 —su
 mínimo— a **62,9% en 2025**.
 
@@ -105,7 +105,7 @@ que valida tanto la agregación mensual como el PIB usado como denominador.
 Hay cuatro advertencias que conviene no saltarse:
 
 **Caja no es causación.** Las cifras oficiales de sostenibilidad usan
-contabilidad de causación; estas registran cuándo entra y sale el dinero. La
+contabilidad de {{< termino "causacion" >}}causación{{< /termino >}}; estas registran cuándo entra y sale el dinero. La
 diferencia es pequeña en ingresos y gastos totales, pero alcanza algunas
 décimas en el balance primario: en 2011 incluso cambia de signo. Para
 afirmaciones sobre sostenibilidad de la deuda, las cifras oficiales mandan.

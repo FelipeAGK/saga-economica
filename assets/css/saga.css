@@ -304,3 +304,20 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 .prosa .redes li + li { margin-top: 0; }
 .prosa .redes a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--linea); text-decoration: none; font-weight: 500; }
 .prosa .redes a:hover { border-color: var(--lila); }
+
+/* --- glosario ----------------------------------------------------------- */
+a.termino { color: inherit; text-decoration: underline dotted var(--lila); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a.termino:hover { color: var(--lila-oscuro); text-decoration-style: solid; }
+.glosario__indice { display: flex; flex-wrap: wrap; gap: 8px 10px; padding: 24px 0 8px; }
+.glosario__indice a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid var(--linea); text-decoration: none; font-size: 14px; color: var(--tinta-2); }
+.glosario__indice a:hover { border-color: var(--lila); color: var(--lila-oscuro); }
+.glosario { margin: 0; max-width: var(--ancho-texto); }
+.glosario__entrada { padding: 30px 0; border-bottom: 1px solid var(--linea); scroll-margin-top: 24px; }
+.glosario__entrada:target { background: var(--lavanda-clara); box-shadow: 0 0 0 16px var(--lavanda-clara); }
+.glosario dt { font-family: var(--titulos); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+.glosario dd { margin: 0; font-size: 17px; line-height: 1.72; }
+.glosario dd p { margin: 0; }
+.glosario dd p + p { margin-top: 12px; }
+.glosario__cifra { color: var(--tinta); font-weight: 500; }
+.glosario__cifra .rotulo { color: var(--lila-oscuro); margin-right: 8px; }
+.glosario__pie { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; color: var(--tinta-3); }
