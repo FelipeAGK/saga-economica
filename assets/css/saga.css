@@ -298,3 +298,9 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
   .rail__bloque--validacion .rail__rotulo, .validacion__cifra { color: #000; }
   a { color: #000; text-decoration: none; }
 }
+
+/* --- lista de redes (shortcode redes) ---------------------------------- */
+.prosa .redes { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 14px; }
+.prosa .redes li + li { margin-top: 0; }
+.prosa .redes a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--linea); text-decoration: none; font-weight: 500; }
+.prosa .redes a:hover { border-color: var(--lila); }

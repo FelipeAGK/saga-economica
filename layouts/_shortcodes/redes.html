@@ -1,0 +1,8 @@
+{{- /* Lista de redes tomada de [params.redes] en hugo.toml.
+       Uso: {{< redes >}}. Una red nueva se agrega en hugo.toml, no aquí. */ -}}
+{{- $nombres := dict "instagram" "Instagram" "youtube" "YouTube" "linkedin" "LinkedIn" "tiktok" "TikTok" "x" "X" }}
+<ul class="redes">
+{{- range $clave, $url := site.Params.redes }}
+  <li><a href="{{ $url }}" rel="me noopener">{{ index $nombres $clave | default (title $clave) }}</a></li>
+{{- end }}
+</ul>

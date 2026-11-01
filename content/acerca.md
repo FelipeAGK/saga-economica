@@ -53,4 +53,4 @@ qué cambió y cuándo, y no borramos el error. Si encuentra uno, escríbanos a
 
 ## Dónde más estamos
 
-[ENLACES: Instagram, YouTube, LinkedIn, boletín]
+{{< redes >}}
