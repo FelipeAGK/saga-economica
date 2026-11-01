@@ -19,11 +19,9 @@ económico.
 
 Soy especialista en Economía de la Pontificia Universidad Javeriana. Recibí el
 **Premio Nacional de Periodismo Simón Bolívar 2023** en categoría Noticia y el
-**Premio CPB 2018** en multimedia. Antes trabajé en Economía para la Pipol.
+**Premio CPB 2018** en multimedia. 
 
-[AMPLIAR: una o dos frases sobre por qué nace Saga y qué querías hacer que no
-estabas haciendo antes. Esto es lo único de la página que no puedo escribir por
-ti, y probablemente sea lo que más se lee.]
+Llevamos años quejándonos porque los economistas quieren explicarnos el mundo, pero usan un lenguaje que solo ellos hablan y les ubica en una esfera diferente a la de nosotros, la gente del común. Del otro lado, quienes se dedican a la economía se quejan porque la gente no les quiere entender, les critican, les juzgan. Saga Económica es un puente entre ambas partes, ¿qué pasaría si en el colegio nos enseñaran de finanzas personales? ¿si nos dijeran que existe la DIAN y no hay que temerle si tienes algunos conocimientos básicos? Este es el espacio para hacer realidad ese mundo: explicaciones de conceptos económicos, respuestas sobre finanzas personales y no personales, y un espacio seguro para que las investigaciones académicas en economía nos aporten y sean parte del debate público sin importar quién tiene y quién no un conocimiento previo en estos temas.
 
 ## Cómo trabajamos
 
@@ -56,9 +54,3 @@ qué cambió y cuándo, y no borramos el error. Si encuentra uno, escríbanos a
 ## Dónde más estamos
 
 [ENLACES: Instagram, YouTube, LinkedIn, boletín]
-
-## Financiación
-
-[PENDIENTE: cómo se sostiene Saga Económica. Para una publicación que pide que
-le crean sus números, decir quién la paga —aunque sea «por ahora, con recursos
-propios y sin publicidad»— vale más que cualquier otra sección de esta página.]
