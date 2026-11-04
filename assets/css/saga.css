@@ -321,3 +321,50 @@ a.termino:hover { color: var(--lila-oscuro); text-decoration-style: solid; }
 .glosario__cifra { color: var(--tinta); font-weight: 500; }
 .glosario__cifra .rotulo { color: var(--lila-oscuro); margin-right: 8px; }
 .glosario__pie { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; color: var(--tinta-3); }
+
+/* --- franja de indicadores (tablero de luces) ----------------------------- */
+.tablero {
+  --punto: 4px;                       /* paso de la rejilla de LEDs */
+  --led: #C9B8FF;                     /* lavanda encendida; el halo es Violeta */
+  background: #070411;
+  border-top: 1px solid #1E1538;
+  border-bottom: 1px solid #1E1538;
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(circle, #171028 0.6px, transparent 0.9px);
+  background-size: var(--punto) var(--punto);
+}
+.tablero__pista { display: flex; width: max-content; animation: tablero-desplazar 48s linear infinite; }
+.tablero:hover .tablero__pista, .tablero:focus-within .tablero__pista { animation-play-state: paused; }
+@keyframes tablero-desplazar { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.tablero__grupo { display: flex; }
+.indicador {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 13px 34px 12px; white-space: nowrap;
+  border-right: 1px solid #1E1538;
+  color: inherit; text-decoration: none;
+}
+a.indicador:hover .indicador__nombre { color: var(--lavanda); }
+.indicador__nombre { font: 600 11px/1 var(--titulos); letter-spacing: .16em; text-transform: uppercase; color: var(--tinta-4); }
+.envoltura { position: relative; display: inline-block; isolation: isolate; }
+.envoltura .halo {
+  position: absolute; inset: 0; font: 800 30px/1 var(--titulos); letter-spacing: .08em;
+  color: var(--violeta); filter: blur(5px); opacity: .9; z-index: 0; pointer-events: none;
+}
+.led {
+  position: relative; z-index: 1; display: inline-block;
+  font: 800 30px/1 var(--titulos); letter-spacing: .08em; color: var(--led);
+  -webkit-mask-image: radial-gradient(circle, #000 44%, transparent 50%);
+          mask-image: radial-gradient(circle, #000 44%, transparent 50%);
+  -webkit-mask-size: var(--punto) var(--punto);
+          mask-size: var(--punto) var(--punto);
+}
+.indicador__var { font: 600 12px/1 var(--sans); color: var(--lavanda); letter-spacing: .04em; }
+.indicador__var--sube::before { content: "\25B2 "; color: var(--dorado); }
+.indicador__var--baja::before { content: "\25BC "; color: var(--dorado); }
+.indicador__corte { font: 400 11px/1 var(--sans); color: #5A5270; letter-spacing: .04em; }
+@media (prefers-reduced-motion: reduce) {
+  .tablero { overflow-x: auto; }
+  .tablero__pista { animation: none; }
+  .tablero__grupo--copia { display: none; }
+}

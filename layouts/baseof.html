@@ -5,6 +5,7 @@
 </head>
 <body class="{{ .Kind }}{{ with .Section }} seccion-{{ . }}{{ end }}">
 {{ partial "encabezado.html" . }}
+{{ partial "franja.html" . }}
 <main id="contenido">
 {{ block "main" . }}{{ end }}
 </main>

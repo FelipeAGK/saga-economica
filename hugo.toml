@@ -8,6 +8,7 @@ enableRobotsTXT = true
   descripcion = 'Análisis de la economía colombiana a partir de las cifras oficiales: fuentes primarias, series completas y el método a la vista.'
   lema = 'Análisis profundo más allá de la viralidad'
   ciudad = 'Bogotá'
+  correo = 'lasagaeconomica@gmail.com'
   mainSections = ['analisis', 'boletin', 'datos', 'video']
 
   [params.redes]

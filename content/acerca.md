@@ -49,7 +49,7 @@ Cuando una pieza argumenta, se nota que argumenta.
 
 Nos vamos a equivocar. Cuando pase, corregimos el texto, dejamos constancia de
 qué cambió y cuándo, y no borramos el error. Si encuentra uno, escríbanos a
-[CORREO].
+[{{< param correo >}}](mailto:{{< param correo >}}).
 
 ## Dónde más estamos
 

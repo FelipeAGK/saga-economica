@@ -1,0 +1,36 @@
+{{- /* Franja de indicadores: lee data/indicadores.yaml y solo muestra entradas con valor. */ -}}
+{{- $items := slice -}}
+{{- range site.Data.indicadores.indicadores -}}
+  {{- if ne (trim (.valor | default "") " ") "" -}}{{- $items = $items | append . -}}{{- end -}}
+{{- end -}}
+{{- if gt (len $items) 0 }}
+<div class="tablero" role="region" aria-label="Indicadores económicos">
+  <div class="tablero__pista">
+    {{- range $copia := slice 0 1 }}
+    <div class="tablero__grupo{{ if eq $copia 1 }} tablero__grupo--copia{{ end }}"{{ if eq $copia 1 }} aria-hidden="true"{{ end }}>
+      {{- range $items }}
+      {{- $enlace := .enlace | default "" }}
+      {{- $corte := .corte | default "" }}
+      {{- $titulo := .fuente | default "" }}
+      {{- if $corte }}{{ $titulo = printf "%s · corte %s" $titulo $corte }}{{ end }}
+      {{- if $enlace }}
+      <a class="indicador" href="{{ $enlace }}" title="{{ $titulo }}">
+      {{- else }}
+      <span class="indicador" title="{{ $titulo }}">
+      {{- end }}
+        <span class="indicador__nombre">{{ .nombre }}</span>
+        <span class="envoltura"><span class="halo" aria-hidden="true">{{ .valor }}</span><span class="led">{{ .valor }}</span></span>
+        {{- $sentido := .sentido | default "" }}
+        {{- with .variacion }}<span class="indicador__var{{ with $sentido }} indicador__var--{{ . }}{{ end }}">{{ . }}</span>{{ end }}
+        {{- with $corte }}<span class="indicador__corte">{{ . }}</span>{{ end }}
+      {{- if $enlace }}
+      </a>
+      {{- else }}
+      </span>
+      {{- end }}
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</div>
+{{- end }}

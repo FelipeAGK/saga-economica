@@ -1,0 +1,83 @@
+# Franja de indicadores (parcial layouts/_partials/franja.html).
+# Se actualiza a mano. Regla: ninguna cifra sin `corte` y sin `fuente`.
+# Una entrada sin `valor` no se muestra; así la franja nunca enseña un dato viejo por descuido.
+#
+# valor:      la cifra tal como debe leerse, con unidad ("4.102", "4,9 %", "US$ 72,4")
+# variacion:  texto corto ("0,3 %", "0,1 pp", "sin cambio"); vacío si no aplica
+# sentido:    sube | baja | igual  (dibuja la flecha; vacío = sin flecha)
+# corte:      fecha o período del dato ("3 nov 2026", "sep 2026", "2025")
+# fuente:     quién publica la cifra (se muestra)
+# enlace:     a dónde lleva el clic (la fuente o la serie en /datos/)
+
+indicadores:
+  - clave: trm
+    nombre: TRM
+    valor: "$ 3.182,99"
+    variacion: ""
+    sentido: ""
+    corte: "3 nov 2026"
+    fuente: Banco de la República
+    enlace: https://www.banrep.gov.co/es/estadisticas/trm
+
+  - clave: inflacion
+    nombre: Inflación anual
+    valor: "6,29 %"
+    variacion: "1,11 pp a/a"
+    sentido: sube
+    corte: "sep 2026"
+    fuente: DANE
+    enlace: https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc
+
+  - clave: tasa
+    nombre: Tasa de política
+    valor: "12,25 %"
+    variacion: "sin cambio"
+    sentido: ""
+    corte: "30 oct 2026"
+    fuente: Banco de la República
+    enlace: https://www.banrep.gov.co/es/estadisticas/tasas-interes-politica-monetaria
+
+  - clave: pib
+    nombre: PIB
+    valor: "3,5 %"
+    variacion: "anual"
+    sentido: sube
+    corte: "II trim 2026"
+    fuente: DANE
+    enlace: https://www.dane.gov.co/index.php/estadisticas-por-tema/cuentas-nacionales/cuentas-nacionales-trimestrales
+
+  - clave: desempleo
+    nombre: Desempleo
+    valor: "8,0 %"
+    variacion: "0,2 pp a/a"
+    sentido: baja
+    corte: "sep 2026"
+    fuente: DANE
+    enlace: https://www.dane.gov.co/index.php/estadisticas-por-tema/mercado-laboral/empleo-y-desempleo
+
+  - clave: deuda
+    nombre: Deuda bruta GNC
+    valor: "62,9 % PIB"
+    variacion: ""
+    sentido: sube
+    corte: "2025"
+    fuente: MinHacienda
+    enlace: /analisis/ingresos-y-gasto-gnc/
+
+  - clave: deficit
+    nombre: Déficit GNC
+    valor: "6,4 % PIB"
+    variacion: "preliminar"
+    sentido: ""
+    corte: "2025"
+    fuente: MinHacienda, Act. Plan Financiero 2026
+    enlace: https://www.minhacienda.gov.co/
+
+  - clave: brent
+    nombre: Brent
+    valor: "US$ 104,38"
+    variacion: "0,39 %"
+    sentido: baja
+    corte: "3 nov 2026"
+    fuente: ICE
+    enlace: https://www.ice.com/products/219/Brent-Crude-Futures
