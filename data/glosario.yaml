@@ -73,3 +73,102 @@ causacion:
     el costo real del periodo, sin el ruido de las fechas de pago.
   origen: /analisis/ingresos-y-gasto-gnc/
   ver: [metodologia-de-caja]
+
+pesos-constantes:
+  termino: Pesos constantes
+  corta: "Cifras de distintos años llevadas a los precios de un solo año, para que se puedan comparar."
+  definicion: >-
+    Un peso de 2019 compraba más que un peso de 2025. Para comparar cifras de
+    años distintos se convierten todas a los precios de un mismo año, usando
+    el índice de precios al consumidor como regla de conversión. El resultado
+    se llama pesos constantes, o pesos «de 2025» si ese es el año elegido. Lo
+    contrario son los pesos corrientes: la cifra tal como se registró cada año,
+    que mezcla crecimiento real con inflación.
+  en_colombia: "En pesos de 2025, el recaudo tributario de 2023 fue de 295 billones y el de 2025, de 272."
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+
+recursos-de-credito:
+  termino: Recursos de crédito
+  corta: "Lo que la Nación recibe cuando se endeuda, por dentro o por fuera del país."
+  definicion: >-
+    Es el dinero que entra a la Tesorería por deuda nueva. El crédito interno
+    es sobre todo la venta de TES, los títulos de deuda pública que compran los
+    bancos, los fondos de pensiones y otros inversionistas en Colombia. El
+    crédito externo son los préstamos de la banca multilateral y los bonos
+    emitidos en el exterior. El presupuesto los registra como ingresos, aunque
+    haya que devolverlos, porque con ellos se paga gasto del año.
+  en_colombia: "129 billones en 2025, de los cuales 86 de crédito interno; en 2024 habían sido 75."
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+  ver: [recursos-de-capital, regla-fiscal]
+
+recursos-de-capital:
+  termino: Recursos de capital
+  corta: "Los ingresos de la Nación que no son impuestos ni contribuciones: deuda, dividendos, excedentes, reintegros."
+  definicion: >-
+    Es la segunda gran rama de los ingresos del presupuesto, después de los
+    ingresos corrientes. Agrupa el crédito interno y externo, los dividendos
+    de las empresas en que la Nación tiene acciones (Ecopetrol, ante todo),
+    los excedentes de los establecimientos públicos, los rendimientos
+    financieros, los reintegros y la venta de activos. Como el crédito es la
+    mayor parte, cuando los recursos de capital crecen suele ser porque la
+    Nación se endeudó más.
+  en_colombia: "155 billones en 2025; el crédito fue 129 de ellos y los dividendos, 19."
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+  ver: [recursos-de-credito]
+
+recaudo-bruto:
+  termino: Recaudo bruto y neto
+  corta: "Bruto es todo lo que se paga en impuestos; neto, lo que queda después de las devoluciones."
+  definicion: >-
+    El recaudo bruto es la suma de lo que los contribuyentes pagan en impuestos
+    en un periodo. Una parte vuelve a ellos: saldos a favor, devoluciones de
+    IVA a exportadores, pagos en exceso. Lo que queda después de restar esas
+    devoluciones es el recaudo neto. La DIAN publica su serie en bruto y cuenta
+    tanto el efectivo como los pagos con títulos; el presupuesto registra lo
+    que entra a la Tesorería. Por eso las dos fuentes no dan la misma cifra, y
+    la diferencia entre ambas es estable, de 4 a 7 por ciento al año.
+  en_colombia: "294,5 billones brutos en 2025 según la DIAN; 272 netos en caja según el presupuesto."
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+  ver: [tidis, metodologia-de-caja]
+
+tidis:
+  termino: TIDIS
+  corta: "Títulos con los que la DIAN devuelve impuestos y que sirven para pagar otros impuestos."
+  definicion: >-
+    Los Títulos de Devolución de Impuestos son papeles que la DIAN entrega a
+    un contribuyente en vez de dinero cuando le debe una devolución. El
+    contribuyente los usa para pagar impuestos, o los vende a otro que los
+    use. Para la DIAN, un impuesto pagado con TIDIS cuenta como recaudo; para
+    la Tesorería no entra un peso. Esa es la razón principal de que el recaudo
+    bruto de la DIAN sea mayor que el recaudo efectivo del presupuesto.
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+  ver: [recaudo-bruto]
+
+regla-fiscal:
+  termino: Regla fiscal
+  corta: "La ley que le pone techo al déficit y a la deuda del Gobierno Nacional cada año."
+  definicion: >-
+    Es una norma, vigente desde 2011 y reformada en 2021, que obliga al
+    Gobierno Nacional a cumplir cada año una meta de balance fiscal calculada
+    para que la deuda no crezca sin límite. La vigila un comité técnico
+    independiente, el Comité Autónomo de la Regla Fiscal (CARF), que emite
+    conceptos pero no puede obligar. La regla tiene una cláusula de escape para
+    situaciones extraordinarias.
+  en_colombia: "El déficit proyectado para 2025, con la regla suspendida, era de 7,1 % del PIB."
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+  ver: [clausula-de-escape, gnc]
+
+clausula-de-escape:
+  termino: Cláusula de escape
+  corta: "El mecanismo que suspende la regla fiscal ante un evento extraordinario."
+  definicion: >-
+    Es la salida que la propia regla fiscal prevé para cuando pasa algo
+    excepcional, como una pandemia o un desastre: el Gobierno puede dejar de
+    cumplir las metas por un tiempo limitado, con concepto previo del CARF y
+    aprobación del Consejo Superior de Política Fiscal. Se usó en 2020 y 2021
+    por la pandemia. En junio de 2025 se activó de nuevo, por tres años, con
+    concepto desfavorable del CARF, que no vio un evento extraordinario sino un
+    desbalance fiscal.
+  en_colombia: "Activada en junio de 2025 para 2025, 2026 y 2027."
+  origen: /analisis/impuestos-y-deuda-2019-2026/
+  ver: [regla-fiscal]

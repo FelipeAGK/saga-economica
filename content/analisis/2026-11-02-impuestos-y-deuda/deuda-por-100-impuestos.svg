@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 450" role="img" aria-label="Pesos de deuda recibidos por cada 100 pesos de impuestos, 2019 a 2026">
+  <style>
+    .eje    { stroke: #8B82A3; stroke-width: 1; }
+    .guia   { stroke: #E6E0F7; stroke-width: 1; stroke-dasharray: 3 3; }
+    .rotulo { fill: #4A4458; font: 13px Inter, 'Segoe UI', system-ui, sans-serif; }
+    .titulo { fill: #0F0A1E; font: 600 17px Inter, 'Segoe UI', system-ui, sans-serif; }
+    .sub    { fill: #4A4458; font: 13px Inter, 'Segoe UI', system-ui, sans-serif; }
+    .serieA { stroke: #7C3AED; stroke-width: 2.8; fill: none;
+              stroke-linejoin: round; stroke-linecap: round; }
+    .serieB { stroke: #0F0A1E; stroke-width: 2.4; fill: none;
+              stroke-linejoin: round; stroke-linecap: round; }
+    .puntoA { fill: #7C3AED; stroke: #FFFFFF; stroke-width: 2; }
+    .puntoB { fill: #0F0A1E; stroke: #FFFFFF; stroke-width: 2; }
+    .brecha { fill: #C4B5FD; opacity: 0.28; }
+    .barraN { fill: #7C3AED; }
+    .barraP { fill: #0F0A1E; }
+    .barraS { fill: #C4B5FD; }
+    .valor  { fill: #0F0A1E; font: 600 13px Inter, 'Segoe UI', system-ui, sans-serif; }
+    .nomA   { fill: #6D28D9; font: 600 13px Inter, 'Segoe UI', system-ui, sans-serif; }
+    .nomB   { fill: #0F0A1E; font: 600 13px Inter, 'Segoe UI', system-ui, sans-serif; }
+  </style>
+<text class="titulo" x="52" y="30">Pesos de deuda por cada 100 de impuestos</text>
+<text class="sub" x="52" y="50">Crédito desembolsado / recaudo tributario neto · Nación</text>
+<line class="guia" x1="52" y1="394.0" x2="734" y2="394.0"/>
+<text class="rotulo" x="42" y="398.0" text-anchor="end">0</text>
+<line class="guia" x1="52" y1="313.5" x2="734" y2="313.5"/>
+<text class="rotulo" x="42" y="317.5" text-anchor="end">20</text>
+<line class="guia" x1="52" y1="233.0" x2="734" y2="233.0"/>
+<text class="rotulo" x="42" y="237.0" text-anchor="end">40</text>
+<line class="guia" x1="52" y1="152.5" x2="734" y2="152.5"/>
+<text class="rotulo" x="42" y="156.5" text-anchor="end">60</text>
+<line class="guia" x1="52" y1="72.0" x2="734" y2="72.0"/>
+<text class="rotulo" x="42" y="76.0" text-anchor="end">80</text>
+<rect class="barraP" x="72.6" y="293.4" width="44" height="100.6" rx="1"/>
+<text class="valor" x="94.6" y="285.4" text-anchor="middle">25</text>
+<text class="rotulo" x="94.6" y="418" text-anchor="middle">2019</text>
+<rect class="barraN" x="157.9" y="120.3" width="44" height="273.7" rx="1"/>
+<text class="valor" x="179.9" y="112.3" text-anchor="middle">68</text>
+<text class="rotulo" x="179.9" y="418" text-anchor="middle">2020</text>
+<rect class="barraN" x="243.1" y="216.9" width="44" height="177.1" rx="1"/>
+<text class="valor" x="265.1" y="208.9" text-anchor="middle">44</text>
+<text class="rotulo" x="265.1" y="418" text-anchor="middle">2021</text>
+<rect class="barraP" x="328.4" y="285.3" width="44" height="108.7" rx="1"/>
+<text class="valor" x="350.4" y="277.3" text-anchor="middle">27</text>
+<text class="rotulo" x="350.4" y="418" text-anchor="middle">2022</text>
+<rect class="barraP" x="413.6" y="293.4" width="44" height="100.6" rx="1"/>
+<text class="valor" x="435.6" y="285.4" text-anchor="middle">25</text>
+<text class="rotulo" x="435.6" y="418" text-anchor="middle">2023</text>
+<rect class="barraP" x="498.9" y="273.2" width="44" height="120.8" rx="1"/>
+<text class="valor" x="520.9" y="265.2" text-anchor="middle">30</text>
+<text class="rotulo" x="520.9" y="418" text-anchor="middle">2024</text>
+<rect class="barraN" x="584.1" y="204.8" width="44" height="189.2" rx="1"/>
+<text class="valor" x="606.1" y="196.8" text-anchor="middle">47</text>
+<text class="rotulo" x="606.1" y="418" text-anchor="middle">2025</text>
+<rect class="barraS" x="669.4" y="216.9" width="44" height="177.1" rx="1"/>
+<text class="valor" x="691.4" y="208.9" text-anchor="middle">44</text>
+<text class="rotulo" x="691.4" y="418" text-anchor="middle">2026*</text>
+<line class="eje" x1="52" y1="394" x2="734" y2="394"/>
+<text class="rotulo" x="52" y="436">Lila: años en que la deuda superó 40 por cada 100 · *2026: enero a septiembre</text>
+</svg>
