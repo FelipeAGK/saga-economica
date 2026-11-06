@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{- /* Estantería de acetatos: una carátula por volumen. */ -}}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+      {{- with .Description }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
+      {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+    </header>
+    {{- with .Pages }}
+    <ul class="estanteria">
+      {{- range .ByDate.Reverse }}
+      {{- $caratula := "" }}{{ with .Params.caratula }}{{ with $.Resources.GetMatch . }}{{ $caratula = .RelPermalink }}{{ end }}{{ end }}
+      <li class="disco">
+        <a class="disco__enlace" href="{{ .RelPermalink }}">
+          {{- with $caratula }}<img class="disco__caratula" src="{{ . }}" alt="" width="300" height="300" loading="lazy">{{ else }}<span class="disco__vacio"></span>{{ end }}
+          <span class="disco__texto">
+            <span class="rotulo">Vol. {{ .Params.numero }} · <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></span>
+            <span class="disco__titulo">{{ .Title }}</span>
+            {{- with .Params.summary }}<span class="disco__resumen">{{ . }}</span>{{ end }}
+          </span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="vacio">Esta sección todavía no tiene volúmenes publicados.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

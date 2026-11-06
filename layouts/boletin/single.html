@@ -1,0 +1,79 @@
+{{ define "main" }}
+{{- /* Plantilla del boletín: carátula grande, voz de Depende, y el rail como playlist
+       (pendientes con fecha, lo que ya sonó, otros volúmenes). Los pendientes salen del
+       front matter ([[lado_a]], [[lado_b]]); el cuerpo los desarrolla. */ -}}
+{{- $caratula := "" }}{{ with .Params.caratula }}{{ with $.Resources.GetMatch . }}{{ $caratula = .RelPermalink }}{{ end }}{{ end }}
+<article class="pieza pieza--con-rail volumen">
+  <header class="pieza__cabecera">
+    <div class="pieza__interior">
+      <p class="pieza__meta">
+        {{- with .Site.GetPage .Section }}<span class="rotulo rotulo--lleno">{{ .Title }}</span>{{ end }}
+        {{- with .Params.numero }}<span class="rotulo rotulo--suave">Vol. {{ . }}</span>{{ end }}
+        {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ end }}
+      </p>
+      {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
+      <h1 class="pieza__titulo">{{ $t | safeHTML }}</h1>
+      {{- with .Params.summary }}<p class="pieza__resumen">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  <div class="pieza__interior pieza__cuerpo">
+    <div class="prosa">
+      {{- with $caratula }}
+      <figure class="volumen__caratula">
+        <img src="{{ . }}" alt="Carátula de {{ $.Title }}" width="600" height="600">
+      </figure>
+      {{- end }}
+      {{ .Content }}
+    </div>
+    <aside class="rail" aria-label="Playlist del volumen">
+      {{- with .Params.lado_a }}
+      <section class="rail__bloque playlist">
+        <h2 class="rail__rotulo rail__rotulo--eq">Lado A · Lo que viene <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></h2>
+        <ol class="playlist__pistas">
+          {{- range . }}
+          <li class="pista pista--sonable">
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <a class="pista__titulo" href="#{{ .ancla }}">{{ .titulo }}</a>
+            <span class="pista__fecha">{{ .fecha }}</span>
+          </li>
+          {{- end }}
+        </ol>
+      </section>
+      {{- end }}
+      {{- with .Params.lado_b }}
+      <section class="rail__bloque playlist playlist--b">
+        <h2 class="rail__rotulo rail__rotulo--eq">Lado B · Lo que ya sonó <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span></h2>
+        <ol class="playlist__pistas">
+          {{- range . }}
+          <li class="pista pista--sonable">
+            <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <a class="pista__titulo" href="{{ .url | relURL }}">{{ .titulo }}</a>
+            {{- with .nota }}<span class="pista__fecha">{{ . }}</span>{{ end }}
+          </li>
+          {{- end }}
+        </ol>
+      </section>
+      {{- end }}
+      {{- $otros := where (where site.RegularPages "Section" "boletin") "Permalink" "!=" .Permalink }}
+      {{- if gt (len $otros) 0 }}
+      <section class="rail__bloque rail__bloque--datos">
+        <h2 class="rail__rotulo">Otros volúmenes</h2>
+        <ul class="discografia">
+          {{- range $otros.ByDate.Reverse }}
+          <li><a href="{{ .RelPermalink }}">Vol. {{ .Params.numero }}</a> <span class="pista__fecha">{{ .Date | time.Format "2 Jan 2006" }}</span></li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+    </aside>
+  </div>
+  {{- with .Params.tags }}
+  <footer class="pieza__interior pieza__pie">
+    <p class="etiquetas-linea">
+      <span class="rotulo">Etiquetas</span>
+      {{- range . }}<a class="etiqueta" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>{{ end }}
+    </p>
+  </footer>
+  {{- end }}
+</article>
+{{ end }}

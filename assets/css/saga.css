@@ -386,3 +386,56 @@ a.indicador:hover .indicador__nombre { color: var(--lavanda); }
 .serie__descarga:hover { background: var(--lila-tinta); color: #fff; }
 .serie__peso { color: var(--tinta-4); font-weight: 400; font-size: 13px; }
 .serie__pieza { color: var(--lila-oscuro); }
+
+/* --- boletín: carátula, playlist y estantería --------------------------- */
+.volumen__caratula { margin: 0 0 32px; }
+.volumen__caratula img { display: block; width: 100%; max-width: 600px; height: auto; border-radius: var(--radio); box-shadow: 0 18px 40px -22px rgba(15, 10, 30, .55); }
+.playlist { background: var(--noche); color: #E4DCF5; padding: 22px; }
+.playlist .rail__rotulo { color: var(--dorado); }
+.playlist--b { background: var(--lavanda-clara); color: var(--tinta-2); }
+.playlist--b .rail__rotulo { color: var(--lila-tinta); }
+.playlist__pistas { margin: 0; padding: 0; list-style: none; counter-reset: pista; }
+.pista { display: flex; align-items: baseline; gap: 10px; padding: 8px 0; border-top: 1px solid rgba(196, 181, 253, .18); counter-increment: pista; }
+.pista:first-child { border-top: 0; padding-top: 0; }
+.pista::before { content: counter(pista) "."; font: 800 12px/1.6 var(--titulos); color: var(--dorado); min-width: 1.4em; }
+.playlist--b .pista { border-top-color: var(--linea); }
+.playlist--b .pista::before { color: var(--lila-oscuro); }
+.pista__titulo { flex: 1 1 auto; color: inherit; text-decoration: none; font-weight: 500; font-size: 14px; line-height: 1.45; }
+.pista__titulo:hover { color: var(--perla); text-decoration: underline; }
+.playlist--b .pista__titulo:hover { color: var(--lila-tinta); }
+.pista__fecha { flex: 0 0 auto; font: 600 11px/1.6 var(--titulos); letter-spacing: .06em; color: var(--lavanda); white-space: nowrap; }
+.playlist--b .pista__fecha { color: var(--tinta-3); }
+.discografia { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+.discografia li { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; }
+.estanteria { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 32px 28px; }
+.disco__enlace { display: block; color: inherit; text-decoration: none; }
+.disco__caratula, .disco__vacio { display: block; width: 100%; aspect-ratio: 1; height: auto; border-radius: var(--radio); background: var(--noche); box-shadow: 0 14px 30px -18px rgba(15, 10, 30, .5); transition: transform .15s ease; }
+.disco__enlace:hover .disco__caratula { transform: translateY(-3px) rotate(-1deg); }
+.disco__texto { display: block; padding-top: 14px; }
+.disco__titulo { display: block; margin: 6px 0 4px; font-family: var(--titulos); font-size: 19px; font-weight: 700; color: var(--tinta); }
+.disco__resumen { display: block; font-size: 14px; color: var(--tinta-2); }
+
+/* --- ecualizador de la playlist (solo CSS) ------------------------------- */
+.eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; width: 18px; vertical-align: -1px; }
+.eq i { flex: 1 1 0; background: var(--dorado); border-radius: 1px 1px 0 0; height: 30%; transform-origin: bottom; animation: eq-barra 1.1s ease-in-out infinite; }
+.eq i:nth-child(1) { animation-duration: .9s; }
+.eq i:nth-child(2) { animation-duration: 1.3s; animation-delay: -.4s; }
+.eq i:nth-child(3) { animation-duration: 1.0s; animation-delay: -.2s; }
+.eq i:nth-child(4) { animation-duration: 1.4s; animation-delay: -.7s; }
+@keyframes eq-barra { 0%, 100% { height: 25%; } 50% { height: 100%; } }
+.rail__rotulo--eq { display: flex; align-items: center; gap: 10px; }
+/* en cada pista: el número se vuelve barras al pasar el cursor o al enfocar */
+.pista--sonable { position: relative; }
+.pista--sonable .eq { display: none; min-width: 1.4em; width: 1.4em; }
+.pista--sonable:hover::before, .pista--sonable:focus-within::before { display: none; }
+.pista--sonable:hover .eq, .pista--sonable:focus-within .eq { display: inline-flex; }
+@media (prefers-reduced-motion: reduce) {
+  .eq i { animation: none; height: 60%; }
+  .eq i:nth-child(2) { height: 100%; } .eq i:nth-child(4) { height: 40%; }
+}
+
+/* lado B: ecualizador en pausa (ya sonó); se anima solo al pasar el cursor */
+.playlist--b .eq i { background: var(--lila-oscuro); animation-play-state: paused; }
+.playlist--b .eq i:nth-child(1) { height: 55%; } .playlist--b .eq i:nth-child(2) { height: 90%; }
+.playlist--b .eq i:nth-child(3) { height: 40%; } .playlist--b .eq i:nth-child(4) { height: 70%; }
+.playlist--b .pista--sonable:hover .eq i, .playlist--b .pista--sonable:focus-within .eq i { animation-play-state: running; }
