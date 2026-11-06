@@ -1,0 +1,49 @@
+{{ define "main" }}
+{{- /* Índice de series derivadas: lee las piezas de cualquier sección que declaren `datos`.
+       Una serie se describe UNA vez, en el front matter de su pieza (regla 1 del pilar). */ -}}
+{{- $series := slice -}}
+{{- range where site.RegularPages "Params.datos" "!=" nil -}}
+  {{- if ne .Section "datos" }}{{ $series = $series | append . }}{{ end -}}
+{{- end -}}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+      {{- with .Description }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
+      {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+    </header>
+
+    {{- range .Pages }}
+    {{ partial "tarjeta.html" . }}
+    {{- end }}
+
+    {{- if gt (len $series) 0 }}
+    <ul class="series" aria-label="Series derivadas de los análisis">
+      {{- range $series.ByDate.Reverse }}
+      {{- $csv := .Resources.GetMatch .Params.datos }}
+      {{- $estado := .Params.estado | default "cerrada" }}
+      <li class="serie">
+        <div class="serie__cabecera">
+          <h2 class="serie__titulo">{{ .Params.serie | default .Title }}</h2>
+          <span class="serie__estado serie__estado--{{ $estado }}">{{ if eq $estado "viva" }}Serie viva{{ else }}Serie cerrada{{ end }}</span>
+        </div>
+        <dl class="serie__ficha">
+          {{- with .Params.ficha.cobertura }}<div><dt>Cobertura</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .Params.ficha.fuente }}<div><dt>Fuente</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .Params.ficha.metodologia }}<div><dt>Método</dt><dd>{{ . }}</dd></div>{{ end }}
+          <div><dt>Actualizada</dt><dd><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ if eq $estado "cerrada" }} · no se actualiza{{ end }}</dd></div>
+          {{- with .Params.datos_nota }}<div><dt>Nota</dt><dd>{{ . }}</dd></div>{{ end }}
+        </dl>
+        <p class="serie__acciones">
+          {{- with $csv }}<a class="serie__descarga" href="{{ .RelPermalink }}" download>Descargar CSV</a> <span class="serie__peso">({{ div (len .Content) 1024.0 | printf "%.1f" }} KB)</span>{{ end }}
+          <a class="serie__pieza" href="{{ .RelPermalink }}">Ver el análisis →</a>
+        </p>
+      </li>
+      {{- end }}
+    </ul>
+    {{- else if not .Pages }}
+    <p class="vacio">Esta sección todavía no tiene series publicadas.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

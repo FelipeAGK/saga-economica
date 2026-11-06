@@ -8,6 +8,9 @@ summary = 'En 2025 la Nación recibió de crédito tanto como en la pandemia, en
 tags = ['fiscal', 'deuda', 'impuestos', 'presupuesto']
 tema = 'Finanzas públicas'
 datos = 'impuestos-vs-deuda-2019-2026.csv'
+serie = 'Impuestos y deuda de la Nación, 2019–2026'
+estado = 'cerrada'
+datos_nota = '2026 cubre enero–septiembre; sin deflactor ni PIB para ese año.'
 
 [ficha]
 fuente = 'MinHacienda (datos.gov.co) · DIAN'

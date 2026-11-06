@@ -8,6 +8,8 @@ summary = 'Veinte años de cuentas del Gobierno Nacional Central en una sola ima
 tags = ['fiscal', 'gnc', 'deficit', 'series-historicas']
 tema = 'Finanzas públicas'
 datos = 'ingresos-gasto-gnc.csv'
+serie = 'Ingresos y gasto primario del GNC, 2005–2025'
+estado = 'cerrada'
 
 [ficha]
 fuente = 'MinHacienda · Banco de la República'
