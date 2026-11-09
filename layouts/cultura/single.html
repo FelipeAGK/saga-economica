@@ -1,0 +1,92 @@
+{{ define "main" }}
+{{- /* Plantilla de cultura: una recomendación (película, libro, pódcast…). Ilustración propia
+       del bundle ([obra] imagen), tráiler oficial embebido si lo hay (trailer = id de YouTube),
+       y el rail con la ficha de la obra y «Para seguir». Nada de fotogramas ni portadas ajenas:
+       la imagen es nuestra o no hay imagen. */ -}}
+{{- $obra := .Params.obra }}
+<article class="pieza pieza--con-rail cultura">
+  <header class="pieza__cabecera">
+    <div class="pieza__interior">
+      <p class="pieza__meta">
+        {{- with .Site.GetPage .Section }}<span class="rotulo rotulo--lleno">{{ .Title }}</span>{{ end }}
+        {{- with $obra }}{{ with .tipo }}<span class="rotulo rotulo--suave">{{ . }}</span>{{ end }}{{ end }}
+        {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ end }}
+      </p>
+      {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
+      <h1 class="pieza__titulo">{{ $t | safeHTML }}</h1>
+      {{- with .Params.summary }}<p class="pieza__resumen">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  <div class="pieza__interior pieza__cuerpo">
+    <div class="prosa">
+      {{- with .Params.imagen }}{{ with $.Resources.GetMatch . }}
+      <figure class="figura figura--cultura">
+        <img src="{{ .RelPermalink }}" alt="{{ $.Params.imagen_alt | default "" }}" width="1200" height="800">
+        {{- with $.Params.imagen_pie }}<figcaption>{{ . }}</figcaption>{{ end }}
+      </figure>
+      {{- end }}{{ end }}
+      {{ .Content }}
+      {{- with .Params.trailer }}
+      <h2 id="trailer">El tráiler</h2>
+      <div class="video__marco">
+        <iframe src="https://www.youtube-nocookie.com/embed/{{ . }}?rel=0&amp;hl=es" title="Tráiler de {{ $.Title }}"
+          loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      {{- with $.Params.trailer_nota }}<p class="video__ficha">{{ . }}</p>{{ end }}
+      {{- end }}
+    </div>
+    <aside class="rail" aria-label="Ficha de la obra">
+      {{- with $obra }}
+      <section class="rail__bloque rail__bloque--ficha">
+        <h2 class="rail__rotulo">La obra</h2>
+        <dl class="ficha">
+          {{- with .original }}<div><dt>Título original</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .autor }}<div><dt>{{ $.Params.obra.autor_rotulo | default "Autor" }}</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .ano }}<div><dt>Año</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .pais }}<div><dt>País</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .duracion }}<div><dt>Duración</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .formato }}<div><dt>Formato</dt><dd>{{ . }}</dd></div>{{ end }}
+          {{- with .donde }}<div><dt>Dónde</dt><dd>{{ . }}</dd></div>{{ end }}
+        </dl>
+      </section>
+      {{- end }}
+      {{- with .Params.por_que }}
+      <section class="rail__bloque rail__bloque--validacion">
+        <h2 class="rail__rotulo">Por qué en Saga</h2>
+        <p>{{ . }}</p>
+      </section>
+      {{- end }}
+      {{- with .Params.fuentes }}
+      <section class="rail__bloque rail__bloque--datos">
+        <h2 class="rail__rotulo">Para seguir</h2>
+        <ul class="fuentes">
+          {{- range . }}
+          <li><a href="{{ .url | relURL }}">{{ .titulo }}</a>{{ with .nota }}<span class="fuentes__nota">{{ . }}</span>{{ end }}</li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+      {{- $otros := where (where site.RegularPages "Section" "cultura") "Permalink" "!=" .Permalink }}
+      {{- if gt (len $otros) 0 }}
+      <section class="rail__bloque">
+        <h2 class="rail__rotulo">Otras recomendaciones</h2>
+        <ul class="discografia">
+          {{- range first 5 $otros.ByDate.Reverse }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.obra }}{{ with .tipo }} <span class="pista__fecha">{{ . }}</span>{{ end }}{{ end }}</li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+    </aside>
+  </div>
+  {{- with .Params.tags }}
+  <footer class="pieza__interior pieza__pie">
+    <p class="etiquetas-linea">
+      <span class="rotulo">Etiquetas</span>
+      {{- range . }}<a class="etiqueta" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>{{ end }}
+    </p>
+  </footer>
+  {{- end }}
+</article>
+{{ end }}

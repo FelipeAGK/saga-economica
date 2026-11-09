@@ -9,7 +9,7 @@ enableRobotsTXT = true
   lema = 'Análisis profundo más allá de la viralidad'
   ciudad = 'Bogotá'
   correo = 'lasagaeconomica@gmail.com'
-  mainSections = ['analisis', 'boletin', 'datos', 'video']
+  mainSections = ['analisis', 'boletin', 'datos', 'video', 'cultura']
 
   [params.redes]
     instagram = 'https://www.instagram.com/sagaeconomica/'
@@ -49,6 +49,11 @@ enableRobotsTXT = true
   weight = 4
 
 [[menu.main]]
+  name = 'Cultura'
+  url = '/cultura/'
+  weight = 5
+
+[[menu.main]]
   name = 'Acerca'
   url = '/acerca/'
-  weight = 5
+  weight = 6

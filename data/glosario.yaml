@@ -172,3 +172,21 @@ clausula-de-escape:
   en_colombia: "Activada en junio de 2025 para 2025, 2026 y 2027."
   origen: /analisis/impuestos-y-deuda-2019-2026/
   ver: [regla-fiscal]
+
+trm:
+  termino: Tasa Representativa del Mercado (TRM)
+  corta: "El precio oficial del dólar en Colombia: un promedio de lo que se negoció el día hábil anterior."
+  definicion: >-
+    Es el precio oficial del dólar en pesos. No lo fija nadie: es el promedio,
+    ponderado por monto, de las operaciones de compra y venta de dólares que
+    hicieron los bancos y demás intermediarios cambiarios durante el día hábil
+    anterior. La calcula y certifica la Superintendencia Financiera y rige
+    durante el día siguiente; por eso la TRM de hoy cuenta el mercado de ayer,
+    y la del viernes vale hasta el lunes. Sirve de referencia para contratos,
+    impuestos y contabilidad, y es la cifra que todo el mundo mira cuando
+    pregunta «¿cómo está el dólar?». A corto plazo se mueve con las tasas de
+    interés de aquí y de afuera y con el apetito de riesgo; a largo plazo,
+    con la diferencia entre nuestra inflación y la de Estados Unidos.
+  en_colombia: "$ 3.237,83 por dólar, vigente del 7 al 9 de noviembre de 2026; había tocado $ 3.349,63 el 29 de septiembre."
+  origen: /video/depende-dolar/
+  ver: [pesos-constantes]

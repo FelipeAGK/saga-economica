@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{- /* Recomendaciones: una tarjeta por obra, con nuestra ilustración si la hay. */ -}}
+<section class="listado">
+  <div class="listado__interior">
+    <header class="listado__cabecera">
+      <h1 class="listado__titulo">{{ .Title }}</h1>
+      {{- with .Description }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
+      {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+    </header>
+    {{- with .Pages }}
+    <ul class="obras">
+      {{- range .ByDate.Reverse }}
+      {{- $pag := . }}{{ $img := "" }}
+      {{- with .Params.imagen }}{{ with $pag.Resources.GetMatch . }}{{ $img = .RelPermalink }}{{ end }}{{ end }}
+      <li class="obra">
+        <a class="obra__enlace" href="{{ .RelPermalink }}">
+          <span class="obra__marco">{{ with $img }}<img class="obra__imagen" src="{{ . }}" alt="" width="600" height="400" loading="lazy">{{ end }}</span>
+          <span class="obra__texto">
+            <span class="rotulo">{{ with .Params.obra }}{{ with .tipo }}{{ . }}{{ end }}{{ with .ano }} · {{ . }}{{ end }}{{ end }}</span>
+            <span class="obra__titulo">{{ .Title }}</span>
+            {{- with .Params.summary }}<span class="obra__resumen">{{ . }}</span>{{ end }}
+          </span>
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="vacio">Esta sección todavía no tiene recomendaciones.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

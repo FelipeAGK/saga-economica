@@ -1,3 +1,6 @@
 public/
 resources/_gen/
 .hugo_build.lock
+
+# video: nunca en el repo, vive en D:\saga-economica-media
+*.mp4

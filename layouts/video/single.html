@@ -1,0 +1,97 @@
+{{ define "main" }}
+{{- /* Plantilla de video: el video de YouTube embebido (dominio sin cookies) y el rail
+       como «Lo que el video no muestra»: cifras con corte y fuente ([[cifras]]) y
+       fuentes para seguir ([[fuentes]]). Todo sale del front matter; el cuerpo lo
+       desarrolla. */ -}}
+{{- $id := .Params.youtube }}
+<article class="pieza pieza--con-rail video">
+  <header class="pieza__cabecera">
+    <div class="pieza__interior">
+      <p class="pieza__meta">
+        {{- with .Site.GetPage .Section }}<span class="rotulo rotulo--lleno">{{ .Title }}</span>{{ end }}
+        {{- with .Params.tema }}<span class="rotulo rotulo--suave">{{ . }}</span>{{ end }}
+        {{- if not .Date.IsZero }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>{{ end }}
+      </p>
+      {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
+      <h1 class="pieza__titulo">{{ $t | safeHTML }}</h1>
+      {{- with .Params.summary }}<p class="pieza__resumen">{{ . }}</p>{{ end }}
+    </div>
+  </header>
+  <div class="pieza__interior pieza__cuerpo">
+    <div class="prosa">
+      {{- /* Dos fuentes posibles: YouTube (youtube = id) o un archivo del bundle (archivo = x.mp4).
+             formato = 'vertical' para reels (9:16); por defecto 16:9. */ -}}
+      {{- $vertical := eq .Params.formato "vertical" }}
+      {{- with $id }}
+      <div class="video__marco{{ if $vertical }} video__marco--vertical{{ end }}">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/{{ . }}?rel=0&amp;hl=es"
+          title="{{ $.Title }}"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      {{- else }}{{ with .Params.archivo }}{{ with $.Resources.GetMatch . }}
+      <div class="video__marco{{ if $vertical }} video__marco--vertical{{ end }}">
+        <video controls playsinline preload="metadata" src="{{ .RelPermalink }}"
+          {{- with $.Params.poster }}{{ with $.Resources.GetMatch . }} poster="{{ .RelPermalink }}"{{ end }}{{ end }}>
+          Tu navegador no reproduce este video. <a href="{{ .RelPermalink }}">Descargarlo</a>.
+        </video>
+      </div>
+      {{- end }}{{ end }}{{ end }}
+      <p class="video__ficha">
+        {{- with .Params.duracion }}<span>Duración {{ . }}</span>{{ end }}
+        {{- with .Params.publicado }}<span>En YouTube desde {{ . }}</span>{{ end }}
+        {{- with .Params.con }}<span>Con {{ . }}</span>{{ end }}
+        {{- with .Params.voz }}<span>Voz: {{ . }}</span>{{ end }}
+        {{- with $id }}<a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener">Ver en YouTube ↗</a>{{ end }}
+      </p>
+      {{ .Content }}
+    </div>
+    <aside class="rail" aria-label="Lo que el video no muestra">
+      {{- with .Params.cifras }}
+      <section class="rail__bloque rail__bloque--cifras">
+        <h2 class="rail__rotulo">Lo que el video no muestra</h2>
+        {{- range . }}
+        <div class="cifra">
+          <p class="cifra__valor">{{ .valor }}</p>
+          <p class="cifra__dato">{{ .dato }}</p>
+          <p class="cifra__corte">{{ .corte }} · {{ if .url }}<a href="{{ .url | relURL }}">{{ .fuente }}</a>{{ else }}{{ .fuente }}{{ end }}</p>
+        </div>
+        {{- end }}
+      </section>
+      {{- end }}
+      {{- with .Params.fuentes }}
+      <section class="rail__bloque rail__bloque--datos">
+        <h2 class="rail__rotulo">Para seguir</h2>
+        <ul class="fuentes">
+          {{- range . }}
+          <li><a href="{{ .url | relURL }}">{{ .titulo }}</a>{{ with .nota }}<span class="fuentes__nota">{{ . }}</span>{{ end }}</li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+      {{- $otros := where (where site.RegularPages "Section" "video") "Permalink" "!=" .Permalink }}
+      {{- if gt (len $otros) 0 }}
+      <section class="rail__bloque">
+        <h2 class="rail__rotulo">Otros videos</h2>
+        <ul class="discografia">
+          {{- range first 5 $otros.ByDate.Reverse }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.duracion }} <span class="pista__fecha">{{ . }}</span>{{ end }}</li>
+          {{- end }}
+        </ul>
+      </section>
+      {{- end }}
+    </aside>
+  </div>
+  {{- with .Params.tags }}
+  <footer class="pieza__interior pieza__pie">
+    <p class="etiquetas-linea">
+      <span class="rotulo">Etiquetas</span>
+      {{- range . }}<a class="etiqueta" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>{{ end }}
+    </p>
+  </footer>
+  {{- end }}
+</article>
+{{ end }}
