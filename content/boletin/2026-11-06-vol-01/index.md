@@ -17,7 +17,7 @@ ancla = 'pib'
 
 [[lado_a]]
 titulo = 'La inflación de octubre'
-fecha = '9 nov'
+fecha = '9 nov · salió'
 ancla = 'inflacion'
 
 [[lado_a]]
@@ -81,10 +81,12 @@ sostiene. ⟨Fuente: calendario de publicaciones 2026 del DANE.⟩
 
 ### 2. La inflación de octubre {#inflacion}
 
-Sale el quinto día hábil de noviembre, que con el festivo del 2 cae el **lunes
-9, a las 6:00 p. m.** Septiembre dio 6,29 % anual, el sexto mes seguido por
-encima de 6 %. ⟨Confirmar día en el calendario del DANE; la regla del quinto
-día hábil rige desde junio de 2023.⟩
+Salió el **lunes 9 de noviembre**, el quinto día hábil del mes: **6,30 %
+anual**, apenas por encima del 6,29 % de septiembre, con 0,20 % en el mes y
+5,94 % en lo corrido del año. Hace un año iba en 5,51 %. Lo que más pesó en
+octubre: vivienda y servicios públicos, alimentos y restaurantes. El próximo
+dato, el de noviembre, sale a comienzos de diciembre y es el que entra a la
+mesa del salario mínimo. ⟨Fuente: DANE, boletín del IPC de octubre de 2026.⟩
 
 ### 3. La Junta del 30 {#junta-30}
 

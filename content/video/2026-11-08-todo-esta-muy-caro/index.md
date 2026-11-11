@@ -12,9 +12,9 @@ publicado = ''        # ⟨fecha de publicación en YouTube: abrir «más» en l
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
 [[cifras]]
-valor = '6,29 %'
-dato = 'Inflación anual, septiembre de 2026'
-corte = 'Septiembre de 2026 · 1,11 pp más que un año antes'
+valor = '6,30 %'
+dato = 'Inflación anual, octubre de 2026'
+corte = 'Octubre de 2026 · 0,79 pp más que un año antes'
 fuente = 'DANE, IPC'
 url = 'https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc'
 
@@ -62,11 +62,10 @@ tiene que ver con eso el aumento del salario mínimo de comienzos de 2026.
 El video es de ⟨mes⟩ de 2026. Las cifras que entonces se discutían ya tienen
 sucesoras:
 
-1. **La inflación sigue por encima de 6 %.** En septiembre de 2026 fue de
-   6,29 % anual, 1,11 puntos porcentuales más que un año antes, según el DANE.
-   El dato de octubre sale el ⟨lunes 9 de noviembre, por confirmar en el
-   calendario del DANE⟩; en [el boletín](/boletin/vol-01/#inflacion) está
-   anotado.
+1. **La inflación sigue por encima de 6 %.** En octubre de 2026 fue de 6,30 %
+   anual (0,20 % en el mes), según el DANE: casi igual al 6,29 % de septiembre
+   y 0,79 puntos porcentuales más que un año antes. En
+   [el boletín](/boletin/vol-01/#inflacion) está el detalle.
 
 2. **El salario mínimo de 2026 quedó en $ 1.750.905**, un 23 % más que en 2025,
    fijado por decreto del Gobierno a finales de diciembre. Con el auxilio de

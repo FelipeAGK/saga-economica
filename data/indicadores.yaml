@@ -12,19 +12,19 @@
 indicadores:
   - clave: trm
     nombre: TRM
-    valor: "$ 3.182,99"
-    variacion: ""
-    sentido: ""
-    corte: "3 nov 2026"
+    valor: "$ 3.269,88"
+    variacion: "0,99 %"
+    sentido: sube
+    corte: "10 nov 2026"
     fuente: Banco de la República
     enlace: https://www.banrep.gov.co/es/estadisticas/trm
 
   - clave: inflacion
     nombre: Inflación anual
-    valor: "6,29 %"
-    variacion: "1,11 pp a/a"
+    valor: "6,30 %"
+    variacion: "0,79 pp a/a"
     sentido: sube
-    corte: "sep 2026"
+    corte: "oct 2026"
     fuente: DANE
     enlace: https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc
 
