@@ -1,5 +1,5 @@
 +++
-title = 'Acerca'
+title = 'Acerca de'
 slug = 'acerca'
 summary = 'Qué es Saga Económica, quién la hace y cómo se construyen sus cifras.'
 +++

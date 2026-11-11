@@ -1,19 +1,163 @@
 {{ define "main" }}
-<section class="portada">
-  <div class="portada__interior">
-    <p class="portada__lema">{{ site.Params.lema }}</p>
-    <h1 class="portada__titulo">{{ site.Params.descripcion }}</h1>
-    {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
+{{- /* Portada: jerarquía antes que cronología (decisión del 3-nov).
+       1. Identidad en dos líneas.
+       2. Pieza destacada: la que declare `destacado = true` o, si ninguna, el análisis más
+          reciente; su primera gráfica SVG es la imagen (S3).
+       3. Depende y sus pendientes: el último volumen con su carátula y el Lado A.
+       4. Bloques por formato: análisis, video, cultura, datos + glosario.
+       5. Temas: etiquetas con dos o más piezas. */ -}}
+{{- $analisis := where site.RegularPages "Section" "analisis" }}
+{{- $videos := where site.RegularPages "Section" "video" }}
+{{- $cultura := where site.RegularPages "Section" "cultura" }}
+{{- $boletines := where site.RegularPages "Section" "boletin" }}
+{{- $conDatos := where site.RegularPages "Params.datos" "!=" nil }}
+{{- $principales := where site.RegularPages "Section" "in" site.Params.mainSections }}
+{{- $destacado := index (where site.RegularPages "Params.destacado" true) 0 | default (index $principales.ByDate.Reverse 0) }}
+{{- /* imagen del destacado según su formato: gráfica SVG (análisis), carátula (boletín),
+       póster o miniatura (video), ilustración (cultura) */ -}}
+{{- $imagenDest := "" }}{{ $verbo := "Leer" }}
+{{- with $destacado }}
+  {{- $pg := . }}
+  {{- if eq .Section "analisis" }}{{ with index (.Resources.Match "*.svg") 0 }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ $verbo = "Leer el análisis" }}
+  {{- else if eq .Section "boletin" }}{{ with .Params.caratula }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer el boletín" }}
+  {{- else if eq .Section "video" }}{{ with .Params.poster }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ end }}{{ $verbo = "Ver el video" }}
+  {{- else if eq .Section "cultura" }}{{ with .Params.imagen }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer la recomendación" }}
+  {{- end }}
+{{- end }}
+
+<section class="inicio inicio--identidad">
+  <div class="inicio__interior">
+    <p class="inicio__lema">{{ site.Params.lema }}</p>
+    <p class="inicio__identidad">{{ site.Params.descripcion }} <a href="{{ "/acerca/" | relURL }}">Cómo trabajamos →</a></p>
   </div>
 </section>
-<section class="listado">
-  <div class="listado__interior">
-    <h2 class="listado__titulo">Lo más reciente</h2>
-    {{- $paginas := where site.RegularPages "Section" "in" site.Params.mainSections }}
-    {{- range first 10 $paginas }}
-    {{ partial "tarjeta.html" . }}
-    {{- else }}
-    <p class="vacio">Todavía no hay piezas publicadas.</p>
+
+<section class="inicio inicio--arriba">
+  <div class="inicio__interior arriba">
+    {{- with $destacado }}
+    <article class="destacado destacado--{{ .Section }}">
+      <a class="destacado__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
+        {{- with $imagenDest }}<img src="{{ . }}" alt="" width="1200" height="700" loading="eager">{{ end }}
+      </a>
+      <div class="destacado__texto">
+        <p class="pieza__meta">
+          <span class="rotulo rotulo--lleno">{{ with site.GetPage .Section }}{{ .Title }}{{ end }}</span>
+          {{- with .Params.tema }}<span class="rotulo rotulo--suave">{{ . }}</span>{{ end }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+        </p>
+        {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
+        <h1 class="destacado__titulo"><a href="{{ .RelPermalink }}">{{ $t | safeHTML }}</a></h1>
+        {{- with .Params.summary }}<p class="destacado__resumen">{{ . }}</p>{{ end }}
+        <p class="destacado__ficha">
+          {{- with .Params.ficha }}{{ with .fuente }}<span>Fuente: {{ . }}</span>{{ end }}{{ with .cobertura }}<span>{{ . }}</span>{{ end }}{{ end }}
+          {{- with .Params.datos }}<span>Datos descargables</span>{{ end }}
+          {{- with .Params.duracion }}<span>{{ . }}</span>{{ end }}
+        </p>
+        <a class="boton" href="{{ .RelPermalink }}">{{ $verbo }}</a>
+      </div>
+    </article>
+    {{- end }}
+    {{- with index $boletines.ByDate.Reverse 0 }}
+    {{- $vol := . }}{{ $caratula := "" }}{{ with .Params.caratula }}{{ with $vol.Resources.GetMatch . }}{{ $caratula = .RelPermalink }}{{ end }}{{ end }}
+    <aside class="depende">
+      <p class="inicio__rotulo">Depende y sus pendientes · <a href="{{ .RelPermalink }}">Vol. {{ .Params.numero }}</a></p>
+      <a class="depende__caratula" href="{{ .RelPermalink }}">{{ with $caratula }}<img src="{{ . }}" alt="Carátula de {{ $vol.Title }}" width="600" height="600" loading="lazy">{{ end }}</a>
+      <h2 class="depende__titulo">Lo que viene, con fecha y fuente</h2>
+      {{- with .Params.lado_a }}
+      <ol class="depende__lista">
+        {{- range first 6 . }}
+        <li><a href="{{ $vol.RelPermalink }}#{{ .ancla }}">{{ .titulo }}</a><span class="depende__fecha">{{ .fecha }}</span></li>
+        {{- end }}
+      </ol>
+      {{- end }}
+      <p class="depende__pie"><a href="{{ .RelPermalink }}">Leer el Vol. {{ .Params.numero }} completo →</a></p>
+    </aside>
+    {{- end }}
+  </div>
+</section>
+
+{{- $otros := $analisis }}
+{{- if gt (len $otros) 0 }}
+<section class="inicio">
+  <div class="inicio__interior">
+    <p class="inicio__rotulo"><a href="{{ "/analisis/" | relURL }}">Análisis</a></p>
+    <div class="inicio__fila">
+      {{- range first 3 $otros.ByDate.Reverse }}
+      {{- $g := index (.Resources.Match "*.svg") 0 }}
+      <article class="ficha-inicio">
+        <a class="ficha-inicio__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">{{ with $g }}<img src="{{ .RelPermalink }}" alt="" width="600" height="350" loading="lazy">{{ end }}</a>
+        <p class="ficha-inicio__meta">{{ with .Params.tema }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></p>
+        <h3 class="ficha-inicio__titulo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{- with .Params.summary }}<p class="ficha-inicio__resumen">{{ . | truncate 160 }}</p>{{ end }}
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+{{- if gt (len $videos) 0 }}
+<section class="inicio inicio--video">
+  <div class="inicio__interior">
+    <p class="inicio__rotulo"><a href="{{ "/video/" | relURL }}">Video</a> <span class="inicio__nota">lo que el video no muestra, al lado de cada uno</span></p>
+    <div class="inicio__fila inicio__fila--3">
+      {{- range first 3 $videos.ByDate.Reverse }}
+      {{- $pag := . }}{{ $mini := "" }}
+      {{- with .Params.poster }}{{ with $pag.Resources.GetMatch . }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}{{ end }}
+      {{- with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}{{ end }}{{ end }}
+      <article class="ficha-inicio">
+        <a class="ficha-inicio__imagen ficha-inicio__imagen--video{{ if eq .Params.formato "vertical" }} ficha-inicio__imagen--vertical{{ end }}" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
+          {{- with $mini }}<img src="{{ . }}" alt="" width="640" height="360" loading="lazy">{{ end }}
+          <span class="clip__play"></span>{{ with .Params.duracion }}<span class="clip__duracion">{{ . }}</span>{{ end }}
+        </a>
+        <p class="ficha-inicio__meta">{{ with .Params.tema }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></p>
+        <h3 class="ficha-inicio__titulo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+{{- if gt (len $cultura) 0 }}
+<section class="inicio">
+  <div class="inicio__interior">
+    <p class="inicio__rotulo"><a href="{{ "/cultura/" | relURL }}">Cultura</a> <span class="inicio__nota">cosas que ayudan a pensar la economía aunque no hablen de economía</span></p>
+    <div class="inicio__fila inicio__fila--5">
+      {{- range first 5 $cultura.ByDate.Reverse }}
+      {{- $pag := . }}{{ $img := "" }}{{ with .Params.imagen }}{{ with $pag.Resources.GetMatch . }}{{ $img = .RelPermalink }}{{ end }}{{ end }}
+      <article class="ficha-inicio ficha-inicio--chica">
+        <a class="ficha-inicio__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">{{ with $img }}<img src="{{ . }}" alt="" width="600" height="400" loading="lazy">{{ end }}</a>
+        <p class="ficha-inicio__meta">{{ with .Params.obra }}{{ .tipo }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></p>
+        <h3 class="ficha-inicio__titulo ficha-inicio__titulo--chico"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      </article>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+<section class="inicio inicio--cierre">
+  <div class="inicio__interior inicio__dos">
+    <div class="caja">
+      <p class="inicio__rotulo"><a href="{{ "/datos/" | relURL }}">Datos</a></p>
+      <p class="caja__cifra">{{ len $conDatos }}</p>
+      <p class="caja__texto">{{ if eq (len $conDatos) 1 }}serie descargable{{ else }}series descargables{{ end }}, cada una con su cobertura, su fuente y su método. <a href="{{ "/datos/" | relURL }}">Ver el índice →</a></p>
+    </div>
+    <div class="caja">
+      <p class="inicio__rotulo"><a href="{{ "/glosario/" | relURL }}">Glosario</a></p>
+      <p class="caja__cifra">{{ len hugo.Data.glosario }}</p>
+      <p class="caja__texto">términos, cada uno con la cifra que lo aterriza en Colombia. Entran cuando una pieza publicada los usa. <a href="{{ "/glosario/" | relURL }}">Abrir el glosario →</a></p>
+    </div>
+    {{- $temas := slice }}
+    {{- range $nombre, $tax := site.Taxonomies.tags }}{{ if ge (len $tax) 2 }}{{ $temas = $temas | append (dict "n" $nombre "c" (len $tax) "p" $tax.Page) }}{{ end }}{{ end }}
+    {{- with $temas }}
+    <div class="caja caja--temas">
+      <p class="inicio__rotulo">Temas</p>
+      <p class="etiquetas-linea etiquetas-linea--suelta">
+        {{- range sort . "c" "desc" }}<a class="etiqueta" href="{{ .p.RelPermalink }}">{{ .n }}</a>{{ end }}
+      </p>
+    </div>
     {{- end }}
   </div>
 </section>

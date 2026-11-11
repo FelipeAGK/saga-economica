@@ -54,6 +54,6 @@ enableRobotsTXT = true
   weight = 5
 
 [[menu.main]]
-  name = 'Acerca'
+  name = 'Acerca de'
   url = '/acerca/'
   weight = 6
