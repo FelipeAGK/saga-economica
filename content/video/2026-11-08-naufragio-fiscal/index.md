@@ -1,6 +1,7 @@
 +++
 date = '2026-11-08T12:00:00-05:00'
 draft = true
+lastmod = '2026-11-21T13:30:00-05:00'
 title = 'El Naufragio Fiscal'
 slug = 'naufragio-fiscal'
 summary = 'Qué es el déficit fiscal y por qué debería importarle a cualquiera, preguntado a expertos y en la calle. Y lo que ha pasado con las cuentas de la Nación desde que salió el video.'
@@ -8,7 +9,7 @@ tags = ['fiscal', 'deficit', 'deuda', 'video']
 tema = 'Finanzas públicas'
 youtube = 'EobM-gDRgek'
 duracion = '7:32'
-publicado = ''        # ⟨fecha de publicación en YouTube: abrir «más» en la descripción⟩
+publicado = 'mayo de 2026'   # ⟨día exacto: abrir «más» en la descripción de YouTube⟩
 con = 'Julio César Iglesias'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
@@ -61,7 +62,7 @@ después.
 
 ## Lo que ha pasado desde el video
 
-El video es de ⟨mes⟩ de 2026. Desde entonces, tres cosas cambiaron en las
+El video es de mayo de 2026. Desde entonces, tres cosas cambiaron en las
 cuentas que el video explica:
 
 1. **El cierre de 2025 ya tiene cifra.** El déficit del Gobierno Nacional
@@ -79,8 +80,8 @@ cuentas que el video explica:
 
 ## El dato que el video no tenía
 
-Por cada 100 pesos que la Nación recibió en impuestos en 2025, recibió 47 en
-préstamos. En 2019 fueron 25. La cifra sale de 1,4 millones de registros
+Por cada $100 que la Nación recibió en impuestos en 2025, recibió otros $47 en
+préstamos. En 2019 fueron $25. La cifra sale de 1,4 millones de registros
 mensuales del presupuesto, y está explicada, con su serie descargable, en
 [el segundo análisis de Saga](/analisis/impuestos-y-deuda-2019-2026/).
 

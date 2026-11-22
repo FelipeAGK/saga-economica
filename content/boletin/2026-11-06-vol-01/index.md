@@ -1,6 +1,7 @@
 +++
 date = '2026-11-06T12:00:00-05:00'
 draft = true
+lastmod = '2026-11-21T13:30:00-05:00'
 title = 'Depende y sus pendientes, Vol. 1'
 slug = 'vol-01'
 resaltado = 'Vol. 1'
@@ -12,7 +13,7 @@ caratula = 'caratula-vol-01.svg'
 
 [[lado_a]]
 titulo = 'El PIB del tercer trimestre'
-fecha = '17 nov'
+fecha = '17 nov · salió'
 ancla = 'pib'
 
 [[lado_a]]
@@ -41,12 +42,12 @@ fecha = '18 dic'
 ancla = 'junta-18'
 
 [[lado_b]]
-titulo = 'Los ingresos subieron. El gasto subió más.'
+titulo = 'Los ingresos subieron, pero el gasto subió más.'
 url = '/analisis/ingresos-y-gasto-gnc/'
 nota = 'Análisis'
 
 [[lado_b]]
-titulo = 'Por cada 100 pesos de impuestos, 47 de deuda.'
+titulo = 'Por cada 100 pesos de impuestos, 47 de deuda'
 url = '/analisis/impuestos-y-deuda-2019-2026/'
 nota = 'Análisis'
 
@@ -62,10 +63,9 @@ nota = 'Datos'
 +++
 
 Hola. Soy Depende. Me preguntan si la economía va bien o va mal y siempre
-contesto lo mismo, y no es por evasivo: es que depende del dato que salga el
-martes, de lo que decida la Junta el viernes y de lo que el Congreso alcance a
-votar antes del 16 de diciembre. Mi trabajo aquí es ese: decirles de qué
-depende, y cuándo se sabe.
+contesto lo mismo porque depende del dato que salga el martes, de lo que decida
+la Junta el viernes y de lo que el Congreso alcance a votar antes del 16 de
+diciembre. Mi trabajo aquí es decirles de qué depende, y cuándo se sabe.
 
 Esto es un compilado. Cada volumen trae los pendientes que vienen, con fecha y
 fuente, y lo que ya sonó en Saga. Este es el primero, así que el lado B es casi
@@ -75,9 +75,12 @@ todo estreno.
 
 ### 1. El PIB del tercer trimestre {#pib}
 
-El DANE lo publica el **martes 17 de noviembre a las 10:00 a. m.** El segundo
-trimestre dio 3,5 % anual, la cifra más alta en tres años; la pregunta es si se
-sostiene. ⟨Fuente: calendario de publicaciones 2026 del DANE.⟩
+Salió el **martes 17 de noviembre**: la economía creció **0,5 % anual** en el
+tercer trimestre, frente al 3,5 % del segundo, que había sido la cifra más alta
+en tres años. Cayeron la agricultura (−6,7 %, con el café −11,2 %), la industria
+(−1,2 %) y las comunicaciones (−2,9 %); el terremoto de agosto pesa en la
+cuenta. ⟨Fuente: DANE, boletín técnico del PIB del III trimestre de 2026, 17-nov;
+cifras leídas en prensa, confirmar en el boletín.⟩
 
 ### 2. La inflación de octubre {#inflacion}
 

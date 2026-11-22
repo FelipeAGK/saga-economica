@@ -1,8 +1,10 @@
 {{- /* Lista de redes tomada de [params.redes] en hugo.toml.
-       Uso: {{< redes >}}. Una red nueva se agrega en hugo.toml, no aquí. */ -}}
-{{- $nombres := dict "instagram" "Instagram" "youtube" "YouTube" "linkedin" "LinkedIn" "tiktok" "TikTok" "x" "X" }}
+       Uso: {{< redes >}}; {{< redes sin="linkedin" >}} omite una o varias (separadas por coma).
+       Una red nueva se agrega en hugo.toml, no aquí. */ -}}
+{{- $sin := split (.Get "sin" | default "") "," }}
+{{- $nombres := dict "instagram" "Instagram" "youtube" "YouTube" "linkedin" "LinkedIn" "tiktok" "TikTok" "substack" "Substack" "x" "X" }}
 <ul class="redes">
-{{- range $clave, $url := site.Params.redes }}
-  <li><a href="{{ $url }}" rel="me noopener">{{ index $nombres $clave | default (title $clave) }}</a></li>
+{{- range $clave := slice "instagram" "tiktok" "youtube" "substack" "linkedin" "x" }}{{ if not (in $sin $clave) }}{{ with index site.Params.redes $clave }}
+  <li><a href="{{ . }}" rel="me noopener">{{ index $nombres $clave }}</a></li>{{ end }}{{ end }}
 {{- end }}
 </ul>

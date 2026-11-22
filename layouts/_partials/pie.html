@@ -7,12 +7,12 @@
     <div class="pie__col">
       <p class="pie__estandar">Fuentes primarias, series completas y datos descargables. <a href="{{ "/acerca/" | relURL }}">Cómo trabajamos</a> · <a href="{{ "/glosario/" | relURL }}">Glosario</a>.</p>
     </div>
+    <div class="pie__col pie__apoyo">
+      {{- with site.Params.apoyo }}<p class="pie__estandar">Saga no tiene pauta ni dueño. <a href="{{ .url | relURL }}">Cómo apoyarla</a>{{ with site.Params.suscripcion }} · <a href="{{ . }}" rel="noopener">Suscribirse al boletín</a>{{ end }}.</p>{{ end }}
+    </div>
     <nav class="pie__redes" aria-label="Redes">
-      {{- with site.Params.redes }}
-      {{- with .instagram }}<a href="{{ . }}" rel="me noopener">Instagram</a>{{ end }}
-      {{- with .youtube }}<a href="{{ . }}" rel="me noopener">YouTube</a>{{ end }}
-      {{- with .linkedin }}<a href="{{ . }}" rel="me noopener">LinkedIn</a>{{ end }}
-      {{- end }}
+      {{- $nombres := dict "instagram" "Instagram" "tiktok" "TikTok" "youtube" "YouTube" "substack" "Substack" "linkedin" "LinkedIn" "x" "X" }}
+      {{- range $clave := slice "instagram" "tiktok" "youtube" "substack" "linkedin" "x" }}{{ with index site.Params.redes $clave }}<a href="{{ . }}" rel="me noopener">{{ index $nombres $clave }}</a>{{ end }}{{ end }}
       {{- with .OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">RSS</a>{{ end }}
     </nav>
   </div>

@@ -1,6 +1,6 @@
 {{- /* La firma se pinta SOLO si el articulo declara autor en su front matter.
        Cuando haya invitados, data/autores.yaml guarda nombre, presentacion y
-       reconocimientos, y aqui se buscan por clave. Hoy: sin firma. */ -}}
+       reconocimientos, y aqui se buscan por clave. Desde el 21-nov-2026 hay invitados. */ -}}
 {{- with .Params.autor }}
 {{- $a := index hugo.Data.autores . }}
 <section class="rail__bloque rail__bloque--firma">
@@ -14,5 +14,6 @@
   {{- else }}
   <p class="firma__nombre">{{ . }}</p>
   {{- end }}
+  {{- if $.Params.invitado }}<p class="firma__nota">Columna de invitado: expresa la opinión de su autor, no la de Saga.</p>{{ end }}
 </section>
 {{- end }}

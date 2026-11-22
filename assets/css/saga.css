@@ -113,6 +113,15 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 }
 .menu a:hover { color: var(--perla); }
 .menu a.activo { color: var(--perla); border-bottom-color: var(--violeta); }
+.cabecera__apoyo {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px;
+  background: var(--violeta); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px;
+  border-radius: 3px; letter-spacing: 0.02em;
+}
+.cabecera__apoyo:hover { background: var(--dorado); color: var(--noche); }
+.pie__apoyo { flex: 1 1 100%; }
+.prosa .cta a { display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; background: var(--lila); color: #fff; text-decoration: none; font-family: var(--titulos); font-weight: 600; }
+.prosa .cta a:hover { background: var(--lila-oscuro); }
 
 /* --- portada ------------------------------------------------------------ */
 .portada { border-bottom: 1px solid var(--linea); background: var(--superficie); }
@@ -149,6 +158,8 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 .tarjeta__titulo a { color: var(--tinta); text-decoration: none; }
 .tarjeta__titulo a:hover { color: var(--lila-oscuro); }
 .tarjeta__resumen { margin: 0; color: var(--tinta-2); font-size: 17px; }
+.tarjeta__firma, .firma-previa { margin: 8px 0 10px; font-size: 14px; color: var(--lila-oscuro); font-weight: 500; }
+.destacado .firma-previa { margin: 16px 0 14px; font-size: 15px; }
 
 /* --- pieza (artículo o página) ----------------------------------------- */
 .pieza__interior { max-width: var(--ancho); margin: 0 auto; padding: 0 var(--gutter); }
@@ -214,6 +225,7 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 .firma__texto { font-size: 13px; }
 .firma__lista { margin: 10px 0 0; padding: 0; list-style: none; font-size: 12px; }
 .firma__lista li { padding-left: 11px; border-left: 3px solid var(--lila); margin-top: 7px; }
+.firma__nota { margin: 12px 0 0; font-size: 12px; font-style: italic; color: var(--tinta-2, #555); }
 
 .rail__bloque--ficha { border-top: 2px solid var(--noche); padding-top: 17px; }
 .ficha { margin: 0; display: flex; flex-direction: column; gap: 12px; }
@@ -282,7 +294,10 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
   body { font-size: 16px; }
   .cabecera__interior { min-height: 0; padding-bottom: 6px; }
   .marca__economica { letter-spacing: 0.22em; font-size: 13px; }
-  .menu { gap: 2px 16px; font-size: 14px; }
+  .menu { gap: 0 14px; font-size: 14px; order: 3; flex: 1 1 100%; margin-top: -6px; }
+  .menu a { min-height: 36px; padding: 6px 0 4px; }
+  .marca { padding: 10px 0 6px; }
+  .cabecera__apoyo { order: 2; min-height: 34px; padding: 0 12px; font-size: 13px; }
   .prosa { font-size: 17px; }
   .pieza__resumen { font-size: 18px; }
   .figura img { padding: 10px 8px 4px; }
@@ -290,7 +305,7 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 
 /* --- impresión ---------------------------------------------------------- */
 @media print {
-  .cabecera, .pie, .menu, .boton { display: none; }
+  .cabecera, .pie, .menu, .boton, .cabecera__apoyo { display: none; }
   body { background: #fff; color: #000; font-size: 11pt; }
   .pieza--con-rail .pieza__cuerpo { display: block; }
   .rail { margin-top: 2em; page-break-inside: avoid; }

@@ -1,0 +1,7 @@
+{{- /* Botón de aporte: lee params.apoyo.wompi (link de pago de Wompi, monto abierto).
+       Si está vacío, pinta el aviso de pendiente en vez de un botón roto. */ -}}
+{{- with site.Params.apoyo.wompi }}
+<p class="cta"><a href="{{ . }}" rel="noopener">Aportar por Wompi</a></p>
+{{- else }}
+<p class="pendiente">⟨Botón de aporte: falta el link de pago de Wompi en <code>hugo.toml</code> (<code>params.apoyo.wompi</code>).⟩</p>
+{{- end }}

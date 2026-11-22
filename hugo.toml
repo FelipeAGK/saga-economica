@@ -11,9 +11,21 @@ enableRobotsTXT = true
   correo = 'lasagaeconomica@gmail.com'
   mainSections = ['analisis', 'boletin', 'datos', 'video', 'cultura']
 
+  # Suscripción (boletín por correo) y apoyo (financiación). El botón del encabezado
+  # y el pie los leen de aquí; la página /apoyar/ explica las dos.
+  suscripcion = 'https://substack.com/@angelicamgomez'
+
+  [params.apoyo]
+    texto = 'Apoyar'
+    url = '/apoyar/'
+    # Link de pago de Wompi (monto abierto). Vacío = el botón de aportar no se pinta.
+    wompi = ''
+
   [params.redes]
     instagram = 'https://www.instagram.com/sagaeconomica/'
+    tiktok = 'https://www.tiktok.com/@saga_economica'
     youtube = 'https://www.youtube.com/@angelicamgomezb'
+    substack = 'https://substack.com/@angelicamgomez'
     linkedin = 'https://www.linkedin.com/in/angelica-maria-gomez/'
 
 [taxonomies]

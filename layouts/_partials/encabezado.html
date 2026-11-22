@@ -11,5 +11,8 @@
       <a href="{{ .URL }}"{{ if $activo }} class="activo" aria-current="page"{{ end }}>{{ .Name }}</a>
       {{- end }}
     </nav>
+    {{- with site.Params.apoyo }}
+    <a class="cabecera__apoyo" href="{{ .url | relURL }}">{{ .texto }}</a>
+    {{- end }}
   </div>
 </header>

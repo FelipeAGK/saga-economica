@@ -47,10 +47,10 @@ Cuando una pieza argumenta, se nota que argumenta.
 
 ## Correcciones
 
-Nos vamos a equivocar. Cuando pase, corregimos el texto, dejamos constancia de
-qué cambió y cuándo, y no borramos el error. Si encuentra uno, escríbanos a
+Es probable que en algún momento nos equivoquemos. Cuando pase, corregimos el
+texto, dejamos constancia de qué cambió y cuándo, y no borramos el error. Si encuentra uno, escríbanos a
 [{{< param correo >}}](mailto:{{< param correo >}}).
 
 ## Dónde más estamos
 
-{{< redes >}}
+{{< redes sin="linkedin" >}}

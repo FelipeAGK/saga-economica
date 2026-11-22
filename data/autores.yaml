@@ -1,0 +1,5 @@
+# Autores invitados. La firma se pinta solo si la pieza declara `autor = 'clave'`.
+# nombre: como firma · presentacion: el cargo actual, nada más (decisión 21-nov-2026) · reconocimientos: opcional.
+andres-velasco:
+  nombre: Andrés Velasco
+  presentacion: Presidente de Asofondos
