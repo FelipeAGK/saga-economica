@@ -4,10 +4,10 @@ draft = true
 title = '¿Sube el dólar esta semana? Depende.'
 slug = 'depende-dolar'
 resaltado = 'Depende.'
-summary = 'Depende explica de qué depende el dólar: esta semana, de las tasas y del miedo (los factores push y pull); a la larga, de cuánta más inflación tenemos que Estados Unidos. Un video corto, con la TRM de las últimas seis semanas.'
+summary = 'Depende explica de qué depende el dólar: esta semana, de las tasas y del miedo (los factores push y pull); a la larga, de cuánta más inflación tenemos que Estados Unidos. Un video corto, con la TRM de las últimas siete semanas.'
 tags = ['dolar', 'trm', 'tasas', 'depende', 'video']
 tema = 'Dólar y tasas'
-archivo = 'depende-dolar-v3.mp4'     # versión 3 (cifras del 9-nov), sin voz todavía; el final con la voz de Angélica
+archivo = 'depende-dolar-v4.mp4'     # versión 4 (cifras del 15-nov), sin voz todavía; el final con la voz de Angélica
 poster = 'poster.jpg'
 formato = 'vertical'
 duracion = '0:46'
@@ -15,9 +15,9 @@ voz = 'pendiente'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
 [[cifras]]
-valor = '$ 3.269,88'
-dato = 'TRM vigente el 10 de noviembre de 2026'
-corte = 'Publicada el 9 nov 2026'
+valor = '$ 3.316,70'
+dato = 'TRM vigente del 14 al 17 de noviembre de 2026'
+corte = 'Publicada el 13 nov 2026'
 fuente = 'Banco de la República, vía datos.gov.co'
 url = 'https://www.datos.gov.co/Econom-a-y-Finanzas/Tasa-de-Cambio-Representativa-del-Mercado-TRM/32sa-8pi3'
 
@@ -29,8 +29,15 @@ fuente = 'FOMC'
 url = 'https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm'
 
 [[cifras]]
+valor = 'US$ 96'
+dato = 'Brent, el petróleo de referencia: venía de US$ 104 el 3 de noviembre'
+corte = '13 nov 2026'
+fuente = 'Trading Economics'
+url = 'https://tradingeconomics.com/commodity/brent-crude-oil'
+
+[[cifras]]
 valor = '6,30 % vs 3,7 %'
-dato = 'Inflación anual en Colombia (octubre) y en Estados Unidos (septiembre)'
+dato = 'Inflación anual en Colombia (octubre) y en Estados Unidos (septiembre; el BLS no publica la anual de octubre por falta del dato de 2025)'
 corte = 'DANE 9 nov 2026 · BLS 14 oct 2026'
 fuente = 'DANE · BLS'
 url = 'https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc'
@@ -87,5 +94,5 @@ las entradas de capital a América Latina.
 
 La animación está escrita en Python con Manim; el retrato de Depende es el mismo
 de la carátula del boletín, vectorizado a partir de su foto. La serie de la
-{{< termino "trm" >}}TRM{{< /termino >}} se descargó de datos abiertos el 9 de
+{{< termino "trm" >}}TRM{{< /termino >}} se descargó de datos abiertos el 15 de
 noviembre y está en el CSV del video.
