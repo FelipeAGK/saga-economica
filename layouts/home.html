@@ -22,7 +22,7 @@
   {{- $pg := . }}
   {{- if eq .Section "analisis" }}{{ with index (.Resources.Match "*.svg") 0 }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ if .Params.invitado }}{{ $imagenDest = site.Params.imagen_opinion | relURL }}{{ end }}{{ $verbo = "Leer el análisis" }}
   {{- else if eq .Section "boletin" }}{{ with .Params.caratula }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer el boletín" }}
-  {{- else if eq .Section "video" }}{{ with .Params.poster }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ end }}{{ $verbo = "Ver el video" }}
+  {{- else if eq .Section "video" }}{{ with .Params.poster }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ if not $imagenDest }}{{ with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ end }}{{ end }}{{ $verbo = "Ver el video" }}
   {{- else if eq .Section "cultura" }}{{ with .Params.imagen }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer la recomendación" }}
   {{- end }}
 {{- end }}
@@ -49,7 +49,7 @@
         </p>
         {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
         <h1 class="destacado__titulo"><a href="{{ .RelPermalink }}">{{ $t | safeHTML }}</a></h1>
-        {{- $p := . }}{{ with .Params.autor }}{{ $a := index hugo.Data.autores . }}<p class="firma-previa">Por {{ with $a }}{{ .nombre }}{{ else }}{{ . }}{{ end }}{{ if $p.Params.invitado }} · Columna de invitado{{ end }}</p>{{ end }}
+        {{- $p := . }}{{ with .Params.autor }}{{ $a := index hugo.Data.autores . }}<p class="firma-previa">Por {{ with $a }}{{ .nombre }}{{ else }}{{ . }}{{ end }}{{ if $p.Params.invitado }} · Columnista invitado{{ end }}</p>{{ end }}
         {{- with .Params.summary }}<p class="destacado__resumen">{{ . }}</p>{{ end }}
         <p class="destacado__ficha">
           {{- with .Params.ficha }}{{ with .fuente }}<span>Fuente: {{ . }}</span>{{ end }}{{ with .cobertura }}<span>{{ . }}</span>{{ end }}{{ end }}
@@ -95,7 +95,7 @@
         {{- end }}
         <p class="ficha-inicio__meta">{{ with .Params.tema }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></p>
         <h3 class="ficha-inicio__titulo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{- $p := . }}{{ with .Params.autor }}{{ $a := index hugo.Data.autores . }}<p class="firma-previa">Por {{ with $a }}{{ .nombre }}{{ else }}{{ . }}{{ end }}{{ if $p.Params.invitado }} · Columna de invitado{{ end }}</p>{{ end }}
+        {{- $p := . }}{{ with .Params.autor }}{{ $a := index hugo.Data.autores . }}<p class="firma-previa">Por {{ with $a }}{{ .nombre }}{{ else }}{{ . }}{{ end }}{{ if $p.Params.invitado }} · Columnista invitado{{ end }}</p>{{ end }}
         {{- with .Params.summary }}<p class="ficha-inicio__resumen">{{ . | truncate 160 }}</p>{{ end }}
       </article>
       {{- end }}
@@ -112,7 +112,7 @@
       {{- range first 3 $videos.ByDate.Reverse }}
       {{- $pag := . }}{{ $mini := "" }}
       {{- with .Params.poster }}{{ with $pag.Resources.GetMatch . }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}{{ end }}
-      {{- with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}{{ end }}{{ end }}
+      {{- if not $mini }}{{ with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}{{ end }}{{ end }}{{ end }}
       <article class="ficha-inicio">
         <a class="ficha-inicio__imagen ficha-inicio__imagen--video{{ if eq .Params.formato "vertical" }} ficha-inicio__imagen--vertical{{ end }}" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
           {{- with $mini }}<img src="{{ . }}" alt="" width="640" height="360" loading="lazy">{{ end }}

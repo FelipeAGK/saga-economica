@@ -221,6 +221,7 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 .rail__rotulo { margin: 0 0 14px; font-family: var(--titulos); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta); }
 
 .rail__bloque--firma { background: var(--lavanda-clara); padding: 22px; }
+.firma__foto { display: block; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 0 14px; border: 3px solid var(--superficie); box-shadow: 0 0 0 1px var(--linea); }
 .firma__nombre { font-family: var(--titulos); font-size: 18px; font-weight: 700; color: var(--tinta); margin: 0 0 8px; }
 .firma__texto { font-size: 13px; }
 .firma__lista { margin: 10px 0 0; padding: 0; list-style: none; font-size: 12px; }

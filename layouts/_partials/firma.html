@@ -6,6 +6,7 @@
 <section class="rail__bloque rail__bloque--firma">
   <h2 class="rail__rotulo">Firma</h2>
   {{- with $a }}
+  {{- with .foto }}<img class="firma__foto" src="{{ . | relURL }}" alt="" width="96" height="96" loading="lazy">{{ end }}
   <p class="firma__nombre">{{ .nombre }}</p>
   {{- with .presentacion }}<p class="firma__texto">{{ . }}</p>{{ end }}
   {{- with .reconocimientos }}
@@ -14,6 +15,6 @@
   {{- else }}
   <p class="firma__nombre">{{ . }}</p>
   {{- end }}
-  {{- if $.Params.invitado }}<p class="firma__nota">Columna de invitado: expresa la opinión de su autor, no la de Saga.</p>{{ end }}
+  {{- if $.Params.invitado }}<p class="firma__nota">Columnistas invitados: expresan su opinión, no la de Saga.</p>{{ end }}
 </section>
 {{- end }}

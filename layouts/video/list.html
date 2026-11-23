@@ -18,13 +18,13 @@
       {{- range .ByDate.Reverse }}
       {{- $pag := . }}{{ $mini := "" }}
       {{- with .Params.poster }}{{ with $pag.Resources.GetMatch . }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}{{ end }}
-      {{- with .Params.youtube }}
-        {{- /* try: si no hay red al construir, el sitio se construye igual, sin miniatura */ -}}
+      {{- if not $mini }}{{ with .Params.youtube }}
+        {{- /* try: si no hay red al construir, el sitio se construye igual, sin miniatura. El póster del bundle manda. */ -}}
         {{- with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}
           {{- with .Err }}{{ warnf "video %s: miniatura no descargada (%s)" $.Title . }}
           {{- else with .Value }}{{ $mini = (.Resize "640x q85").RelPermalink }}{{ end }}
         {{- end }}
-      {{- end }}
+      {{- end }}{{ end }}
       <li class="clip">
         <a class="clip__enlace" href="{{ .RelPermalink }}">
           <span class="clip__marco{{ if eq .Params.formato "vertical" }} clip__marco--vertical{{ end }}">

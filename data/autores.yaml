@@ -1,5 +1,8 @@
 # Autores invitados. La firma se pinta solo si la pieza declara `autor = 'clave'`.
 # nombre: como firma · presentacion: el cargo actual, nada más (decisión 21-nov-2026) · reconocimientos: opcional.
+# foto: ruta en static/; foto_fuente: quién la envió y cuándo (S7: fuente y licencia conocidas; no se muestra).
 andres-velasco:
   nombre: Andrés Velasco
   presentacion: Presidente de Asofondos
+  foto: /img/autores/andres-velasco.jpg
+  foto_fuente: Enviada por el autor a través de Angélica M. Gómez, 23-nov-2026 (recorte de Saga)

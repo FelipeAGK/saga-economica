@@ -7,12 +7,12 @@ resaltado = 'Depende.'
 summary = 'Depende explica de qué depende el dólar: esta semana, de las tasas y del miedo (los factores push y pull); a la larga, de cuánta más inflación tenemos que Estados Unidos. Un video corto, con la TRM de las últimas siete semanas.'
 tags = ['dolar', 'trm', 'tasas', 'depende', 'video']
 tema = 'Dólar y tasas'
-archivo = 'depende-dolar-voz.mp4'    # v4 (cifras del 15-nov) con la voz de Angélica (grabada el 16-nov); fuera del repo por .gitignore
+youtube = 'Hq1aVee83OA'    # Short «¿Sube o baja el dólar?» en el canal de Angélica, 23-nov-2026 (v4 con su voz). El mp4 vive en D:\saga-economica-media\depende\
 poster = 'poster.jpg'
 formato = 'vertical'
-duracion = '0:46'
-lastmod = '2026-11-22T17:00:00-05:00'
-voz = ''
+duracion = '0:47'
+publicado = '23 de noviembre de 2026'
+lastmod = '2026-11-23T10:00:00-05:00'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
 [[cifras]]
