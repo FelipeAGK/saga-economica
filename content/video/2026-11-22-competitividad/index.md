@@ -38,7 +38,7 @@ url = 'https://urosario.edu.co/sites/default/files/2026-07/indice-departamental-
 [[fuentes]]
 titulo = 'Informe Nacional de Competitividad 2026-2027'
 url = 'https://www.larepublica.co/economia/publicacion-informe-nacional-de-competitividad-4493929'
-nota = 'La República, 30 de septiembre de 2026: lo logrado y lo pendiente en veinte años, según el CPC. ⟨Enlace directo al informe en colombiacompite: pendiente.⟩'
+nota = 'La República, 30 de septiembre de 2026: lo logrado y lo pendiente en veinte años, según el CPC.'
 
 [[fuentes]]
 titulo = 'Índice Departamental de Competitividad 2026'

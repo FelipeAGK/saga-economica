@@ -19,7 +19,7 @@ autor_rotulo = 'Autores'
 ano = '2019 (en español, 2020)'
 pais = 'Estados Unidos / India / Francia'
 formato = 'Ensayo, unas 400 páginas'
-donde = 'Taurus, traducción al español. ⟨Edición y disponibilidad en Colombia: por confirmar.⟩'
+donde = 'Taurus, traducción al español.'
 
 [[fuentes]]
 titulo = 'Por cada 100 pesos de impuestos, 47 de deuda'

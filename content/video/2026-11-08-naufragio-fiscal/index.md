@@ -69,7 +69,6 @@ cuentas que el video explica:
 1. **El cierre de 2025 ya tiene cifra.** El déficit del Gobierno Nacional
    Central fue de 6,4 % del PIB, según el dato preliminar del Ministerio de
    Hacienda en la Actualización del Plan Financiero de marzo de 2026.
-   ⟨Reemplazar por el cierre observado cuando salga; pendiente 7 del 04.⟩
 
 2. **La deuda bruta cerró 2025 en 62,9 % del PIB.** La historia completa, año
    por año, está en [el primer análisis de Saga](/analisis/ingresos-y-gasto-gnc/).

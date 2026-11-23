@@ -19,7 +19,7 @@ autor_rotulo = 'Autores'
 ano = '2011 (en español, 2012)'
 pais = 'Estados Unidos / India / Francia'
 formato = 'Ensayo, unas 320 páginas'
-donde = 'Taurus, traducción al español. ⟨Edición y disponibilidad en Colombia: por confirmar.⟩'
+donde = 'Taurus, traducción al español.'
 
 [[fuentes]]
 titulo = 'Premio Nobel de Economía 2019'
@@ -57,8 +57,9 @@ política social se ganaron en 2019 el Nobel de Economía junto a Michael Kremer
 Y hay una mención a Colombia. Los economistas vieron de cerca el efecto de los
 bonos escolares que se otorgaron en algún momento en el país para que familias
 de bajos ingresos pudieran matricular a sus hijos en colegios privados, lo que
-mejoró en el largo plazo los ingresos de toda la familia. ⟨El programa PACES,
-de los años noventa; confirmar el nombre y la fecha en el capítulo.⟩
+mejoró en el largo plazo los ingresos de toda la familia. Es el PACES
+(Programa de Ampliación de Cobertura de la Educación Secundaria), que el libro
+trata en el capítulo 4, «Los primeros de la clase».
 
 El resultado, a grandes rasgos, es que los pobres no son ni víctimas pasivas
 ni emprendedores heroicos, sino personas que toman decisiones con muy poca

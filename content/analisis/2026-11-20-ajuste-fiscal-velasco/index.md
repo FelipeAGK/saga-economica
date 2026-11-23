@@ -69,7 +69,7 @@ colombianos.**
 
 *Nota de Saga.* La cifra del ajuste que cita la columna —cerca de dos puntos
 del PIB en 2027 y cuatro en 2028— es la proyección del Gobierno para la Ley de
-Rescate Económico (PL 477 de 2026). ⟨Fuente exacta: exposición de motivos,
-Gaceta 1717 de 2026; por confirmar.⟩ En 2025 la Nación recibió
+Rescate Económico (PL 477 de 2026). Fuente: exposición de motivos del proyecto,
+[Gaceta del Congreso 1717 de 2026](https://www.camara.gov.co/ley-rescate-economico). En 2025 la Nación recibió
 [47 pesos de deuda por cada 100 pesos de impuestos](/analisis/impuestos-y-deuda-2019-2026/);
 el análisis, con su serie descargable, está en Saga.

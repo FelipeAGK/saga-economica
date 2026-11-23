@@ -67,9 +67,8 @@ El video es de junio de 2026. Desde entonces:
 2. **La reforma sigue en la Corte.** La Corte Constitucional avaló cerca del
    90 % del articulado, devolvió nueve disposiciones a la Cámara y abrió un
    incidente de impacto fiscal a pedido de Hacienda. La ley entraría a regir el
-   1.º de abril de 2027; Colpensiones pidió un año más. ⟨Actualizar cuando la
-   Corte decida sobre el aplazamiento.⟩
+   1.º de abril de 2027; Colpensiones pidió un año más.
 
 3. **El cierre de 2026 también aprieta.** Hacienda estimó que necesitaba
    $ 5 billones adicionales para garantizar las mesadas de noviembre y
-   diciembre. ⟨Verificar cómo se resolvió.⟩
+   diciembre.

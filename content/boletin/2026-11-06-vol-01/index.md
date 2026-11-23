@@ -92,16 +92,15 @@ indicadores de inflación y perspectivas el 9 de diciembre, las propuestas de
 cada sector el 10, el **primer plazo legal para un acuerdo el 15** y, si no lo
 hay, decreto a más tardar el 30 de diciembre. El dato que entra a la mesa es
 la inflación de noviembre, que el DANE publica a comienzos de diciembre.
-⟨Fuente: cronograma anunciado por la ministra del Trabajo, Natalia López
-Fuentes, el 18 de noviembre; leído en Portafolio. Confirmar en mintrabajo.gov.co.⟩
+Fuente: Ministerio del Trabajo, [comunicado del 18 de noviembre de 2026](https://www.mintrabajo.gov.co/web/guest/aprobado-cronograma-para-la-concertaci%C3%B3n-del-salario-m%C3%ADnimo-de-2027-en-colombia);
+los plazos del 15 y el 30 de diciembre son los de la Ley 278 de 1996.
 
 ### 2. La confianza empresarial {#fedesarrollo}
 
 Fedesarrollo publica a fin de mes su Encuesta de Opinión Empresarial de
 octubre: el Índice de Confianza Comercial y el Industrial. En septiembre
 subieron los dos, a **28,6 %** y **8,3 %**. La pregunta es si el frenazo del
-tercer trimestre ya se siente en el ánimo de las empresas. ⟨Fecha exacta por
-confirmar con Fedesarrollo; la de septiembre salió el 28 de octubre.⟩
+tercer trimestre ya se siente en el ánimo de las empresas.
 
 ### 3. La inflación que mira la Fed {#pce}
 
@@ -110,15 +109,15 @@ Análisis Económico de Estados Unidos publica el gasto de consumo personal de
 octubre, con el índice de precios PCE, la medida de inflación que la Reserva
 Federal usa para su meta del 2 %. En septiembre iba en **3,6 % anual** (3,1 %
 sin alimentos ni energía). Importa aquí por lo que explica el video de
-Depende: si la Fed no puede bajar su tasa, el dólar se sostiene. ⟨Fuente: BEA,
-calendario de publicaciones 2026 y comunicado del 29-oct.⟩
+Depende: si la Fed no puede bajar su tasa, el dólar se sostiene. Fuente: BEA,
+calendario de publicaciones 2026 y comunicado del 29-oct.
 
 ### 4. El PIB de EE. UU., revisado {#pib-eeuu}
 
 El mismo miércoles 25, la BEA publica la segunda estimación del PIB del tercer
 trimestre. La primera dio **3,4 % anualizado**, por encima del 2,2 % del
 segundo trimestre. Una economía que crece así, con inflación por encima de la
-meta, es una Fed que espera. ⟨Fuente: BEA, comunicado del 29-oct y calendario.⟩
+meta, es una Fed que espera. Fuente: BEA, comunicado del 29-oct y calendario.
 
 ### 5. La Junta del 30 {#junta-30}
 

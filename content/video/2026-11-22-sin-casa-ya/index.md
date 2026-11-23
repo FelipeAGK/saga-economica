@@ -64,4 +64,4 @@ días después:
 
 3. **Lo que viene depende de la tasa.** El Banco de la República subió su tasa
    a 12,25 % en septiembre de 2026 y el crédito hipotecario sigue esa señal con
-   rezago. ⟨Tasa promedio de crédito de vivienda, Superfinanciera: pendiente.⟩
+   rezago.
