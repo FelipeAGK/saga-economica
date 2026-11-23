@@ -25,6 +25,24 @@
 {{- range .Params.tags }}
 <meta property="article:tag" content="{{ . }}">
 {{- end }}{{ end }}
+{{- /* Datos estructurados (schema.org) para buscadores: la organización en la portada, Article o VideoObject en las piezas. */}}
+{{- $logo := "img/saga-isotipo-512.png" | absURL }}
+{{- $org := dict "@type" "Organization" "name" site.Title "url" site.BaseURL "logo" $logo }}
+{{- $ld := dict }}
+{{- if .IsHome }}
+  {{- $ld = dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" site.Params.descripcion "inLanguage" "es-CO" "publisher" $org }}
+{{- else if .IsPage }}
+  {{- $tipo := cond (eq .Section "video") "VideoObject" "Article" }}
+  {{- $ld = dict "@context" "https://schema.org" "@type" $tipo "headline" .Title "description" $desc "url" .Permalink "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-CO" "publisher" $org "image" ("img/saga-og.png" | absURL) }}
+  {{- with .Params.autor }}{{ with index site.Data.autores . }}{{ $ld = merge $ld (dict "author" (dict "@type" "Person" "name" .nombre)) }}{{ end }}{{ else }}{{ $ld = merge $ld (dict "author" $org) }}{{ end }}
+  {{- if eq $tipo "VideoObject" }}
+    {{- with .Params.youtube }}{{ $ld = merge $ld (dict "embedUrl" (printf "https://www.youtube-nocookie.com/embed/%s" .) "thumbnailUrl" (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .) "uploadDate" ($.Date.Format "2006-01-02")) }}{{ end }}
+    {{- $ld = merge $ld (dict "name" .Title) }}
+  {{- end }}
+{{- end }}
+{{- with $ld }}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end }}
 <link rel="icon" href="{{ "img/saga-isotipo.svg" | relURL }}" type="image/svg+xml">
 <link rel="icon" href="{{ "img/saga-isotipo-64.png" | relURL }}" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="{{ "img/saga-isotipo-192.png" | relURL }}">

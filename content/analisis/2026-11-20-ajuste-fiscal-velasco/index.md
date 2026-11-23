@@ -1,6 +1,6 @@
 +++
 date = '2026-11-20T12:00:00-05:00'
-draft = true
+draft = false
 title = 'Colombia necesita un ajuste fiscal a la altura de sus desafíos'
 slug = 'ajuste-fiscal-velasco'
 resaltado = 'a la altura de sus desafíos'

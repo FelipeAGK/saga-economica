@@ -1,7 +1,7 @@
 +++
 date = '2026-11-02T20:00:00-05:00'
 lastmod = '2026-11-21T13:30:00-05:00'
-draft = true
+draft = false
 title = 'Por cada 100 pesos de impuestos, 47 de deuda'
 slug = 'impuestos-y-deuda-2019-2026'
 resaltado = '47 de deuda'

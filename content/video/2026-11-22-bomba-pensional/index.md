@@ -1,6 +1,6 @@
 +++
 date = '2026-11-22T19:10:00-05:00'
-draft = true
+draft = false
 lastmod = '2026-11-22T19:10:00-05:00'
 title = 'La bomba pensional'
 slug = 'bomba-pensional'

@@ -1,6 +1,6 @@
 +++
 date = '2026-11-22T19:20:00-05:00'
-draft = true
+draft = false
 lastmod = '2026-11-22T19:20:00-05:00'
 title = '¿Qué es eso de la competitividad y por qué importa medirla?'
 slug = 'competitividad'

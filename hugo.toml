@@ -3,6 +3,8 @@ locale = 'es-co'
 defaultContentLanguage = 'es'
 title = 'Saga Económica'
 enableRobotsTXT = true
+# Rutas solo ASCII: una etiqueta con acento o ñ no produce URL con acento (22-nov, auditoría prepublicación).
+removePathAccents = true
 
 [params]
   descripcion = 'Análisis de la economía colombiana a partir de las cifras oficiales: fuentes primarias, series completas y el método a la vista.'

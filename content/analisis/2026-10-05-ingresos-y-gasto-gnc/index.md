@@ -1,7 +1,7 @@
 +++
 date = '2026-10-05T14:30:00-05:00'
 lastmod = '2026-11-21T13:30:00-05:00'
-draft = true
+draft = false
 title = 'Los ingresos subieron, pero el gasto subió más.'
 slug = 'ingresos-y-gasto-gnc'
 resaltado = 'pero el gasto subió más.'

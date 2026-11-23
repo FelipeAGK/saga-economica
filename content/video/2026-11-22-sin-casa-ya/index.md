@@ -1,6 +1,6 @@
 +++
 date = '2026-11-22T19:00:00-05:00'
-draft = true
+draft = false
 lastmod = '2026-11-22T19:00:00-05:00'
 title = 'Sin casa ya'
 slug = 'sin-casa-ya'

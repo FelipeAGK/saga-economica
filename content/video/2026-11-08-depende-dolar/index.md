@@ -1,6 +1,6 @@
 +++
 date = '2026-11-08T14:00:00-05:00'
-draft = true
+draft = false
 title = '¿Sube el dólar esta semana? Depende.'
 slug = 'depende-dolar'
 resaltado = 'Depende.'
