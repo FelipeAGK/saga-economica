@@ -4,3 +4,5 @@ resources/_gen/
 
 # video: nunca en el repo, vive en D:\saga-economica-media
 *.mp4
+# Excepción (22-nov-2026): el video de Depende con voz se sirve desde el sitio hasta que esté en YouTube (5 MB).
+!content/video/2026-11-08-depende-dolar/depende-dolar-voz.mp4

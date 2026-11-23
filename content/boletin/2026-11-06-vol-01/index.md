@@ -1,5 +1,5 @@
 +++
-date = '2026-11-23T06:00:00-05:00'
+date = '2026-11-22T20:30:00-05:00'
 draft = false
 lastmod = '2026-11-22T19:00:00-05:00'
 title = 'Depende y sus pendientes, Vol. 1'
