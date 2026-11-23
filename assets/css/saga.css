@@ -160,6 +160,7 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 .tarjeta__resumen { margin: 0; color: var(--tinta-2); font-size: 17px; }
 .tarjeta__firma, .firma-previa { margin: 8px 0 10px; font-size: 14px; color: var(--lila-oscuro); font-weight: 500; }
 .destacado .firma-previa { margin: 16px 0 14px; font-size: 15px; }
+.pieza__firma { margin: 14px 0 0; font-size: 15px; font-weight: 500; color: var(--lila-oscuro); }
 
 /* --- pieza (artículo o página) ----------------------------------------- */
 .pieza__interior { max-width: var(--ancho); margin: 0 auto; padding: 0 var(--gutter); }
@@ -293,12 +294,13 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 @media (max-width: 640px) {
   :root { --gutter: 16px; }
   body { font-size: 16px; }
-  .cabecera__interior { min-height: 0; padding-bottom: 6px; }
-  .marca__economica { letter-spacing: 0.22em; font-size: 13px; }
-  .menu { gap: 0 14px; font-size: 14px; order: 3; flex: 1 1 100%; margin-top: -6px; }
+  .cabecera__interior { min-height: 0; padding-bottom: 6px; column-gap: 10px; }
+  .marca__economica { letter-spacing: 0.12em; font-size: 12px; }
+  .menu { gap: 0 10px; font-size: 13px; order: 3; flex: 1 1 100%; margin-top: 0; flex-wrap: nowrap; justify-content: space-between; white-space: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .menu::-webkit-scrollbar { display: none; }
   .menu a { min-height: 36px; padding: 6px 0 4px; }
-  .marca { padding: 10px 0 6px; }
-  .cabecera__apoyo { order: 2; min-height: 34px; padding: 0 12px; font-size: 13px; }
+  .marca { padding: 10px 0 6px; flex: 1 1 0; min-width: 0; }
+  .cabecera__apoyo { order: 2; min-height: 34px; padding: 0 12px; font-size: 13px; margin-left: auto; flex: 0 0 auto; }
   .prosa { font-size: 17px; }
   .pieza__resumen { font-size: 18px; }
   .figura img { padding: 10px 8px 4px; }

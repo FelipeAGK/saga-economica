@@ -5,7 +5,7 @@ lastmod = '2026-11-22T19:00:00-05:00'
 title = 'Depende y sus pendientes, Vol. 1'
 slug = 'vol-01'
 resaltado = 'Vol. 1'
-summary = 'Edición de bienvenida, lunes 23 de noviembre. Seis pendientes con fecha y fuente para las próximas dos semanas: la mesa del salario mínimo, el ISE, la confianza empresarial, dos datos de Estados Unidos y la Junta del 30. Y lo que ya sonó en Saga.'
+summary = 'Edición de bienvenida, lunes 23 de noviembre. Cinco pendientes con fecha y fuente para las próximas dos semanas: la mesa del salario mínimo, la confianza empresarial, dos datos de Estados Unidos y la Junta del 30. Y lo que ya sonó en Saga.'
 tags = ['boletin', 'agenda', 'depende']
 tema = 'Agenda económica'
 numero = 1
@@ -15,11 +15,6 @@ caratula = 'caratula-vol-01.svg'
 titulo = 'La mesa del salario mínimo'
 fecha = '27 nov'
 ancla = 'salario-minimo'
-
-[[lado_a]]
-titulo = 'El ISE de septiembre'
-fecha = '17 nov · salió'
-ancla = 'ise'
 
 [[lado_a]]
 titulo = 'La confianza empresarial'
@@ -100,17 +95,7 @@ la inflación de noviembre, que el DANE publica a comienzos de diciembre.
 ⟨Fuente: cronograma anunciado por la ministra del Trabajo, Natalia López
 Fuentes, el 18 de noviembre; leído en Portafolio. Confirmar en mintrabajo.gov.co.⟩
 
-### 2. El ISE de septiembre {#ise}
-
-Salió el **martes 17 de noviembre**, el mismo día que el PIB: la economía
-creció **1,44 % anual** en septiembre y **2,82 % frente a agosto** en la serie
-ajustada, por el rebote de la industria y la construcción. Es el dato que
-explica por qué el tercer trimestre cerró en 0,5 %: julio y agosto fueron
-flojos, septiembre repuntó. El siguiente, el de octubre, sale a mediados de
-diciembre. ⟨Fuente: DANE, Indicador de Seguimiento a la Economía, boletín de
-septiembre de 2026; cifras leídas en La República del 17-nov.⟩
-
-### 3. La confianza empresarial {#fedesarrollo}
+### 2. La confianza empresarial {#fedesarrollo}
 
 Fedesarrollo publica a fin de mes su Encuesta de Opinión Empresarial de
 octubre: el Índice de Confianza Comercial y el Industrial. En septiembre
@@ -118,7 +103,7 @@ subieron los dos, a **28,6 %** y **8,3 %**. La pregunta es si el frenazo del
 tercer trimestre ya se siente en el ánimo de las empresas. ⟨Fecha exacta por
 confirmar con Fedesarrollo; la de septiembre salió el 28 de octubre.⟩
 
-### 4. La inflación que mira la Fed {#pce}
+### 3. La inflación que mira la Fed {#pce}
 
 El **miércoles 25 de noviembre, 8:30 a. m. de Washington**, la Oficina de
 Análisis Económico de Estados Unidos publica el gasto de consumo personal de
@@ -128,14 +113,14 @@ sin alimentos ni energía). Importa aquí por lo que explica el video de
 Depende: si la Fed no puede bajar su tasa, el dólar se sostiene. ⟨Fuente: BEA,
 calendario de publicaciones 2026 y comunicado del 29-oct.⟩
 
-### 5. El PIB de EE. UU., revisado {#pib-eeuu}
+### 4. El PIB de EE. UU., revisado {#pib-eeuu}
 
 El mismo miércoles 25, la BEA publica la segunda estimación del PIB del tercer
 trimestre. La primera dio **3,4 % anualizado**, por encima del 2,2 % del
 segundo trimestre. Una economía que crece así, con inflación por encima de la
 meta, es una Fed que espera. ⟨Fuente: BEA, comunicado del 29-oct y calendario.⟩
 
-### 6. La Junta del 30 {#junta-30}
+### 5. La Junta del 30 {#junta-30}
 
 El Banco de la República tiene reunión ordinaria el **lunes 30 de noviembre**,
 sin decisión de tasa. Lo que sí hay antes: las minutas de la reunión de

@@ -10,6 +10,7 @@
       </p>
       {{- $t := .Title }}{{ with .Params.resaltado }}{{ $t = replace $t . (printf "<mark>%s</mark>" .) }}{{ end }}
       <h1 class="pieza__titulo">{{ $t | safeHTML }}</h1>
+      {{- $p := . }}{{ with .Params.autor }}{{ $a := index hugo.Data.autores . }}<p class="pieza__firma">Por {{ with $a }}{{ .nombre }}{{ else }}{{ . }}{{ end }}{{ if $p.Params.invitado }} · Columnista invitado{{ end }}</p>{{ end }}
       {{- with .Params.summary }}<p class="pieza__resumen">{{ . }}</p>{{ end }}
     </div>
   </header>
