@@ -1,0 +1,6 @@
+# Redirecciones de Cloudflare Pages (se copian tal cual a la raíz del sitio publicado).
+# 23-nov-2026: etiquetas retiradas o renombradas; sus direcciones ya estaban en el sitemap.
+/tags/video/    /video/                    301
+/tags/boletin/  /boletin/                  301
+/tags/trm/      /tags/dolar/               301
+/tags/reforma/  /tags/reforma-tributaria/  301
