@@ -9,6 +9,10 @@
       {{- with .Description }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
       {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
     </header>
+    {{- range $clave, $l := site.Params.listas }}
+    {{- $n := len (where $.Pages "Params.lista" $clave) }}
+    <p class="videoteca__lista">Miniserie <a href="https://www.youtube.com/playlist?list={{ $l.youtube }}" rel="noopener">«{{ $l.titulo }}»</a>{{ with $l.nota }} · {{ . }}{{ end }}{{ if gt $n 0 }} · {{ $n }} {{ if eq $n 1 }}capítulo{{ else }}capítulos{{ end }} aquí{{ end }}.</p>
+    {{- end }}
     {{- with .Pages }}
     <ul class="videoteca">
       {{- range .ByDate.Reverse }}

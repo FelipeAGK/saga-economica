@@ -2,37 +2,31 @@
 title = 'Apoya a Saga'
 slug = 'apoyar'
 summary = 'Saga Económica no tiene pauta ni dueño. Tres maneras de sostenerla: suscribirse, aportar y compartir.'
+lastmod = '2026-11-22T17:00:00-05:00'
 +++
 
-Saga Económica se hace con tiempo propio y datos públicos. No tiene pauta, no
-tiene dueño y no cobra por leer. Para que siga así hay tres maneras de ayudar.
+Saga Económica se hace con tiempo propio y datos públicos. No tiene pauta y no
+cobra por leer, pero sí tiene una red de la que puedes ser parte para que esta
+idea siga adelante. A continuación encuentras tres maneras de ayudar.
 
 ## Suscribirse
 
-El boletín llega por correo desde Substack. La suscripción gratuita basta para
-no perderse nada; la paga, cuando exista, es un apoyo directo.
+El boletín llega por correo cada quince días, los lunes. La suscripción gratuita
+basta para no perderse nada; la paga, cuando exista, es un apoyo directo.
 
-[Suscribirse en Substack]({{< param suscripcion >}})
-{.cta}
+{{< suscribir >}}
 
-## Aportar
+## Comprar una tecla de nuestra máquina
 
-Un aporte, del monto que usted elija, por Wompi: tarjeta, PSE, Nequi o
-Bancolombia, con recibo al correo.
+Un aporte, del monto que usted elija. Recibimos todos los bancos y tarjetas.
 
 {{< aportar >}}
 
-Lo que entra se usa en lo que cuesta hacer Saga: el dominio y el hosting, las
-herramientas de datos y video, y el tiempo de quienes la escriben.
-
-**Los aportantes son públicos.** Saga agradece a quienes la sostienen con
-nombre propio, en el sitio y en las transmisiones en vivo. Si prefiere aportar
-sin aparecer, dígalo en el campo de mensaje del pago y así será. ⟨Confirmar que
-el link de Wompi pide nombre y permite un mensaje; si no, el consentimiento se
-pide por correo antes de publicar el nombre.⟩
-
-Saga publica sus datos; también publicará sus cuentas: ⟨una vez al año,
-ingresos y gastos en esta misma página⟩.
+**Los aportantes son públicos.** Reconocemos públicamente a quienes construyen
+con nosotros. Cada semestre transmitiremos en redes sociales con un invitado o
+invitada especial y allí mencionaremos a nuestros mecenas de ese periodo. Si
+prefiere aportar sin aparecer, dígalo en el campo de mensaje del pago y así
+será.
 
 ## Lo que viene
 
@@ -41,7 +35,9 @@ va el enlace.⟩
 
 ## Compartir
 
-Es gratis y también cuenta: una pieza de Saga enviada a alguien que la necesita
-vale más que un «me gusta». Las redes, para seguirla:
+Es gratis y también cuenta. Una pieza de Saga enviada a alguien que la necesita
+vale más que un «me gusta», y no olvide sus comentarios con más de tres
+palabras para que el famoso algoritmo lo tenga en cuenta y también nos ayude a
+democratizar el conocimiento económico. Las redes, para seguirla:
 
 {{< redes >}}

@@ -1,0 +1,10 @@
+{{- /* Formulario de suscripción al boletín, incrustado desde Substack (sin salir del sitio).
+     Sin JS o sin iframe queda el enlace directo. Lee site.Params.suscripcion. */ -}}
+{{- with site.Params.suscripcion }}
+<div class="suscribir">
+  <iframe class="suscribir__marco" src="{{ . }}/embed" title="Suscribirse al boletín de Saga Económica" loading="lazy" frameborder="0" scrolling="no"></iframe>
+  <p class="suscribir__alterno">Si el formulario no carga: <a href="{{ . }}/subscribe" rel="noopener">suscribirse en Substack</a>.</p>
+</div>
+{{- else }}
+<p class="pendiente">⟨Suscripción: falta la dirección de la publicación en hugo.toml.⟩</p>
+{{- end }}

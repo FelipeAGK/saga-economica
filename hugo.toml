@@ -13,20 +13,30 @@ enableRobotsTXT = true
 
   # Suscripción (boletín por correo) y apoyo (financiación). El botón del encabezado
   # y el pie los leen de aquí; la página /apoyar/ explica las dos.
-  suscripcion = 'https://substack.com/@angelicamgomez'
+  # Publicación de Substack desde la que sale el boletín. El shortcode {{< suscribir >}}
+  # incrusta su formulario (/embed) para que el lector se suscriba sin salir de Saga.
+  suscripcion = 'https://angelicamgomez.substack.com'
+  # Imagen única de las columnas de opinión e invitados (portada y bloque de análisis). S7: propia.
+  imagen_opinion = '/img/opinion.jpg'
+
+  # Listas de reproducción de YouTube. Un video se cuelga de una con lista = 'clave'.
+  [params.listas]
+    [params.listas.verdad]
+      titulo = 'La verdad sobre la economía de Colombia'
+      youtube = 'PLIf1tsltAjMU'
+      nota = 'Miniserie de documentales cortos sobre la deuda, los precios, la vivienda y las pensiones.'
 
   [params.apoyo]
     texto = 'Apoyar'
     url = '/apoyar/'
     # Link de pago de Wompi (monto abierto). Vacío = el botón de aportar no se pinta.
-    wompi = ''
+    wompi = 'https://checkout.wompi.co/l/VPOS_VVXgmV'
 
   [params.redes]
     instagram = 'https://www.instagram.com/sagaeconomica/'
     tiktok = 'https://www.tiktok.com/@saga_economica'
     youtube = 'https://www.youtube.com/@angelicamgomezb'
     substack = 'https://substack.com/@angelicamgomez'
-    linkedin = 'https://www.linkedin.com/in/angelica-maria-gomez/'
 
 [taxonomies]
   tag = 'tags'

@@ -7,11 +7,12 @@ resaltado = 'Depende.'
 summary = 'Depende explica de qué depende el dólar: esta semana, de las tasas y del miedo (los factores push y pull); a la larga, de cuánta más inflación tenemos que Estados Unidos. Un video corto, con la TRM de las últimas siete semanas.'
 tags = ['dolar', 'trm', 'tasas', 'depende', 'video']
 tema = 'Dólar y tasas'
-archivo = 'depende-dolar-v4.mp4'     # versión 4 (cifras del 15-nov), sin voz todavía; el final con la voz de Angélica
+archivo = 'depende-dolar-voz.mp4'    # v4 (cifras del 15-nov) con la voz de Angélica (grabada el 16-nov); fuera del repo por .gitignore
 poster = 'poster.jpg'
 formato = 'vertical'
 duracion = '0:46'
-voz = 'pendiente'
+lastmod = '2026-11-22T17:00:00-05:00'
+voz = ''
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
 [[cifras]]
@@ -69,8 +70,6 @@ factores *push*: la Fed, el miedo en los mercados, el petróleo), de lo que pase
 adentro (los factores *pull*: la tasa del Banco, el déficit, lo que el mercado
 espera del peso) y, a la larga, de una sola cosa: cuánta más inflación tenemos
 que Estados Unidos.
-
-Esta es la versión sin voz. La final la narra Angélica.
 
 ## El marco
 

@@ -12,13 +12,15 @@
 {{- $boletines := where site.RegularPages "Section" "boletin" }}
 {{- $conDatos := where site.RegularPages "Params.datos" "!=" nil }}
 {{- $principales := where site.RegularPages "Section" "in" site.Params.mainSections }}
-{{- $destacado := index (where site.RegularPages "Params.destacado" true) 0 | default (index $principales.ByDate.Reverse 0) }}
+{{- /* Sin `destacado = true`, manda el análisis más reciente (nunca el boletín: ese va a la derecha).
+       Solo si no hay análisis se cae a la pieza más reciente de las secciones principales. */ -}}
+{{- $destacado := index (where site.RegularPages "Params.destacado" true) 0 | default (index $analisis.ByDate.Reverse 0) | default (index $principales.ByDate.Reverse 0) }}
 {{- /* imagen del destacado según su formato: gráfica SVG (análisis), carátula (boletín),
        póster o miniatura (video), ilustración (cultura) */ -}}
 {{- $imagenDest := "" }}{{ $verbo := "Leer" }}
 {{- with $destacado }}
   {{- $pg := . }}
-  {{- if eq .Section "analisis" }}{{ with index (.Resources.Match "*.svg") 0 }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ $verbo = "Leer el análisis" }}
+  {{- if eq .Section "analisis" }}{{ with index (.Resources.Match "*.svg") 0 }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ if .Params.invitado }}{{ $imagenDest = site.Params.imagen_opinion | relURL }}{{ end }}{{ $verbo = "Leer el análisis" }}
   {{- else if eq .Section "boletin" }}{{ with .Params.caratula }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer el boletín" }}
   {{- else if eq .Section "video" }}{{ with .Params.poster }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ end }}{{ $verbo = "Ver el video" }}
   {{- else if eq .Section "cultura" }}{{ with .Params.imagen }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer la recomendación" }}
@@ -35,7 +37,7 @@
 <section class="inicio inicio--arriba">
   <div class="inicio__interior arriba">
     {{- with $destacado }}
-    <article class="destacado destacado--{{ .Section }}">
+    <article class="destacado destacado--{{ .Section }}{{ if .Params.invitado }} destacado--opinion{{ end }}">
       <a class="destacado__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
         {{- with $imagenDest }}<img src="{{ . }}" alt="" width="1200" height="700" loading="eager">{{ end }}
       </a>
@@ -86,7 +88,11 @@
       {{- range first 3 $otros.ByDate.Reverse }}
       {{- $g := index (.Resources.Match "*.svg") 0 }}
       <article class="ficha-inicio">
+        {{- if .Params.invitado }}
+        <a class="ficha-inicio__imagen ficha-inicio__imagen--opinion" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1"><img src="{{ site.Params.imagen_opinion | relURL }}" alt="" width="600" height="350" loading="lazy"></a>
+        {{- else }}
         <a class="ficha-inicio__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">{{ with $g }}<img src="{{ .RelPermalink }}" alt="" width="600" height="350" loading="lazy">{{ end }}</a>
+        {{- end }}
         <p class="ficha-inicio__meta">{{ with .Params.tema }}{{ . }} · {{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "2 Jan 2006" }}</time></p>
         <h3 class="ficha-inicio__titulo"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         {{- $p := . }}{{ with .Params.autor }}{{ $a := index hugo.Data.autores . }}<p class="firma-previa">Por {{ with $a }}{{ .nombre }}{{ else }}{{ . }}{{ end }}{{ if $p.Params.invitado }} · Columna de invitado{{ end }}</p>{{ end }}

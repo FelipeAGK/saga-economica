@@ -1,15 +1,16 @@
 +++
 date = '2026-11-08T12:30:00-05:00'
 draft = true
-lastmod = '2026-11-21T13:30:00-05:00'
+lastmod = '2026-11-22T19:40:00-05:00'
 title = 'Todo está muy caro en Colombia'
 slug = 'todo-esta-muy-caro'
 summary = '¿Siente que el sueldo le alcanza para menos? Angélica pregunta en la calle y explica por qué. Y aquí, las cifras de inflación y salario que el video no alcanzó a ver.'
 tags = ['inflacion', 'precios', 'salario-minimo', 'video']
 tema = 'Precios y salarios'
 youtube = 'd0Xckq3PgKw'
-duracion = '4:46'
-publicado = 'mayo de 2026'   # ⟨día exacto: abrir «más» en la descripción de YouTube⟩
+duracion = '4:47'
+publicado = '7 de julio de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+lista = 'verdad'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
 [[cifras]]
@@ -60,7 +61,7 @@ tiene que ver con eso el aumento del salario mínimo para 2026.
 
 ## Lo que ha pasado desde el video
 
-El video es de mayo de 2026. Las cifras que entonces se discutían ya tienen
+El video es de julio de 2026. Las cifras que entonces se discutían ya tienen
 sucesoras:
 
 1. **La inflación sigue por encima de 6 %.** En octubre de 2026 fue de 6,30 %

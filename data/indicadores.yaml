@@ -17,7 +17,8 @@ indicadores:
     sentido: sube
     corte: "17 nov 2026"
     fuente: Banco de la República
-    enlace: https://www.banrep.gov.co/es/estadisticas/trm
+    # 22-nov-2026: banrep.gov.co/es/estadisticas/trm da 404; la serie oficial abierta es esta.
+    enlace: https://www.datos.gov.co/Econom-a-y-Finanzas/Tasa-de-Cambio-Representativa-del-Mercado-TRM/32sa-8pi3
 
   - clave: inflacion
     nombre: Inflación anual
@@ -35,7 +36,8 @@ indicadores:
     sentido: ""
     corte: "30 oct 2026"
     fuente: Banco de la República
-    enlace: https://www.banrep.gov.co/es/estadisticas/tasas-interes-politica-monetaria
+    # 22-nov-2026: la página de estadísticas da 404; se enlaza el comunicado de la última Junta con decisión.
+    enlace: https://www.banrep.gov.co/es/noticias/junta-directiva/junta-directiva-octubre-2026
 
   - clave: pib
     nombre: PIB
@@ -71,13 +73,14 @@ indicadores:
     sentido: ""
     corte: "2025"
     fuente: MinHacienda, Act. Plan Financiero 2026
-    enlace: https://www.minhacienda.gov.co/
+    # 22-nov-2026: la portada de MinHacienda es genérica; se enlaza al análisis de Saga mientras no haya URL estable del Plan Financiero ⟨pendiente⟩.
+    enlace: /analisis/ingresos-y-gasto-gnc/
 
   - clave: brent
     nombre: Brent
-    valor: "US$ 104,38"
-    variacion: "0,39 %"
+    valor: "US$ 91,80"
+    variacion: "0,83 %"
     sentido: baja
-    corte: "3 nov 2026"
-    fuente: ICE
+    corte: "20 nov 2026"
+    fuente: ICE, contrato ene-2027 (cierre del viernes; −0,77 US$)
     enlace: https://www.ice.com/products/219/Brent-Crude-Futures

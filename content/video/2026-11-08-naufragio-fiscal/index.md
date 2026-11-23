@@ -1,7 +1,7 @@
 +++
 date = '2026-11-08T12:00:00-05:00'
 draft = true
-lastmod = '2026-11-21T13:30:00-05:00'
+lastmod = '2026-11-22T19:40:00-05:00'
 title = 'El Naufragio Fiscal'
 slug = 'naufragio-fiscal'
 summary = 'Qué es el déficit fiscal y por qué debería importarle a cualquiera, preguntado a expertos y en la calle. Y lo que ha pasado con las cuentas de la Nación desde que salió el video.'
@@ -9,7 +9,8 @@ tags = ['fiscal', 'deficit', 'deuda', 'video']
 tema = 'Finanzas públicas'
 youtube = 'EobM-gDRgek'
 duracion = '7:32'
-publicado = 'mayo de 2026'   # ⟨día exacto: abrir «más» en la descripción de YouTube⟩
+publicado = '17 de abril de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+lista = 'verdad'
 con = 'Julio César Iglesias'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
@@ -62,7 +63,7 @@ después.
 
 ## Lo que ha pasado desde el video
 
-El video es de mayo de 2026. Desde entonces, tres cosas cambiaron en las
+El video es de abril de 2026. Desde entonces, tres cosas cambiaron en las
 cuentas que el video explica:
 
 1. **El cierre de 2025 ya tiene cifra.** El déficit del Gobierno Nacional

@@ -8,7 +8,7 @@
       <p class="pie__estandar">Fuentes primarias, series completas y datos descargables. <a href="{{ "/acerca/" | relURL }}">Cómo trabajamos</a> · <a href="{{ "/glosario/" | relURL }}">Glosario</a>.</p>
     </div>
     <div class="pie__col pie__apoyo">
-      {{- with site.Params.apoyo }}<p class="pie__estandar">Saga no tiene pauta ni dueño. <a href="{{ .url | relURL }}">Cómo apoyarla</a>{{ with site.Params.suscripcion }} · <a href="{{ . }}" rel="noopener">Suscribirse al boletín</a>{{ end }}.</p>{{ end }}
+      {{- with site.Params.apoyo }}<p class="pie__estandar">Saga no tiene pauta ni dueño. <a href="{{ .url | relURL }}">Cómo apoyarla</a>{{ with site.Params.suscripcion }} · <a href="{{ "/apoyar/#suscribirse" | relURL }}">Suscribirse al boletín</a>{{ end }}.</p>{{ end }}
     </div>
     <nav class="pie__redes" aria-label="Redes">
       {{- $nombres := dict "instagram" "Instagram" "tiktok" "TikTok" "youtube" "YouTube" "substack" "Substack" "linkedin" "LinkedIn" "x" "X" }}

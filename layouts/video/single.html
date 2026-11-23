@@ -44,6 +44,7 @@
         {{- with .Params.duracion }}<span>Duración {{ . }}</span>{{ end }}
         {{- with .Params.publicado }}<span>En YouTube desde {{ . }}</span>{{ end }}
         {{- with .Params.con }}<span>Con {{ . }}</span>{{ end }}
+        {{- with .Params.lista }}{{ with index site.Params.listas . }}<span>Miniserie <a href="https://www.youtube.com/playlist?list={{ .youtube }}" rel="noopener">«{{ .titulo }}»</a></span>{{ end }}{{ end }}
         {{- with .Params.voz }}<span>Voz: {{ . }}</span>{{ end }}
         {{- with $id }}<a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener">Ver en YouTube ↗</a>{{ end }}
       </p>

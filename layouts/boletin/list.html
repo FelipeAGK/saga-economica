@@ -7,10 +7,11 @@
       {{- with .Description }}<p class="listado__descripcion">{{ . }}</p>{{ end }}
       {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
     </header>
+    {{ partial "suscribir.html" . }}
     {{- with .Pages }}
     <ul class="estanteria">
       {{- range .ByDate.Reverse }}
-      {{- $vol := . }}{{ $caratula := "" }}{{ with .Params.caratula }}{{ with $vol.Resources.GetMatch . }}{{ $caratula = .RelPermalink }}{{ end }}{{ end }}
+      {{- $caratula := "" }}{{ with .Params.caratula }}{{ with $.Resources.GetMatch . }}{{ $caratula = .RelPermalink }}{{ end }}{{ end }}
       <li class="disco">
         <a class="disco__enlace" href="{{ .RelPermalink }}">
           {{- with $caratula }}<img class="disco__caratula" src="{{ . }}" alt="" width="300" height="300" loading="lazy">{{ else }}<span class="disco__vacio"></span>{{ end }}
