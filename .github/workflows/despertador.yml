@@ -1,0 +1,19 @@
+# Despertador de Saga (23-nov-2026): reconstruye el sitio en Cloudflare Pages sin push,
+# tocando el Deploy Hook guardado en el secreto CF_DEPLOY_HOOK (GitHub → Settings → Secrets).
+# Para qué: Cloudflare solo construye cuando hay push; las piezas con fecha futura (S6) salen
+# cuando algo reconstruye después de su hora. El boletín sale los lunes a las 6:00 (Bogotá).
+# Los cron de GitHub van en UTC: Bogotá = UTC−5 todo el año → 6:05 Bogotá = 11:05 UTC.
+name: despertador
+on:
+  schedule:
+    - cron: '5 11 * * 1'      # lunes 6:05 a. m. Bogotá — boletín quincenal (corre todos los lunes; si no hay nada nuevo, no cambia nada)
+    # - cron: '30 0 * * 2-6'  # 7:30 p. m. Bogotá de lunes a viernes — TRM del día siguiente (activar cuando la franja lea la API)
+  workflow_dispatch:          # botón «Run workflow» en GitHub → Actions, para disparar a mano
+jobs:
+  reconstruir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tocar el Deploy Hook de Cloudflare Pages
+        run: |
+          if [ -z "${{ secrets.CF_DEPLOY_HOOK }}" ]; then echo "Falta el secreto CF_DEPLOY_HOOK"; exit 1; fi
+          curl -sS -X POST "${{ secrets.CF_DEPLOY_HOOK }}" -o /dev/null -w "Cloudflare respondió HTTP %{http_code}\n"
