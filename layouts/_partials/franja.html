@@ -1,4 +1,41 @@
-{{- /* Franja de indicadores: lee data/indicadores.yaml y solo muestra entradas con valor. */ -}}
+{{- /* Franja de indicadores: lee data/indicadores.yaml y solo muestra entradas con valor.
+       TRM automática (23-nov-2026): al construir se leen los dos últimos registros de la serie
+       oficial en datos.gov.co (32sa-8pi3) y con ellos se calculan valor, variación y corte
+       (= vigencia). Si la lectura falla, queda la TRM de indicadores.yaml con su propio corte:
+       la franja nunca se queda sin dato ni inventa uno (S1). Lo demás sigue a mano. */ -}}
+{{- $trm := dict -}}
+{{- $url := "https://www.datos.gov.co/resource/32sa-8pi3.json?$order=vigenciadesde%20DESC&$limit=2" -}}
+{{- with try (resources.GetRemote $url (dict "key" (printf "trm-%s" (now.Format "2006010215")))) -}}
+  {{- with .Err -}}
+    {{- warnf "franja: TRM no leida de datos.gov.co (%s); queda la de indicadores.yaml" . -}}
+  {{- else with .Value -}}
+    {{- $filas := slice -}}
+    {{- with try (transform.Unmarshal .) }}{{ with .Value }}{{ if reflect.IsSlice . }}{{ $filas = . }}{{ end }}{{ end }}{{ end -}}
+    {{- if ge (len $filas) 2 -}}
+      {{- $hoy := index $filas 0 -}}{{- $antes := index $filas 1 -}}
+      {{- $v := float $hoy.valor -}}{{- $a := float $antes.valor -}}
+      {{- if and (gt $v 0.0) (gt $a 0.0) -}}
+        {{- $cambio := mul (div (sub $v $a) $a) 100 -}}
+        {{- $sentido := "" -}}{{- $variacion := "sin cambio" -}}
+        {{- if ge (math.Abs $cambio) 0.005 -}}
+          {{- $sentido = cond (gt $cambio 0.0) "sube" "baja" -}}
+          {{- $variacion = printf "%s %%" (lang.FormatNumberCustom 2 (math.Abs $cambio) "- , .") -}}
+        {{- end -}}
+        {{- $d1 := time.AsTime (substr $hoy.vigenciadesde 0 10) -}}
+        {{- $d2 := time.AsTime (substr $hoy.vigenciahasta 0 10) -}}
+        {{- $corte := $d2 | time.Format "2 Jan 2006" -}}
+        {{- if ne ($d1.Format "2006-01-02") ($d2.Format "2006-01-02") -}}
+          {{- if eq ($d1.Format "2006-01") ($d2.Format "2006-01") -}}
+            {{- $corte = printf "%d–%s" $d1.Day $corte -}}
+          {{- else -}}
+            {{- $corte = printf "%s–%s" ($d1 | time.Format "2 Jan") $corte -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $trm = dict "valor" (printf "$ %s" (lang.FormatNumberCustom 2 $v "- , .")) "variacion" $variacion "sentido" $sentido "corte" $corte -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 {{- $items := slice -}}
 {{- range site.Data.indicadores.indicadores -}}
   {{- if ne (trim (.valor | default "") " ") "" -}}{{- $items = $items | append . -}}{{- end -}}
@@ -9,6 +46,8 @@
     {{- range $copia := slice 0 1 }}
     <div class="tablero__grupo{{ if eq $copia 1 }} tablero__grupo--copia{{ end }}"{{ if eq $copia 1 }} aria-hidden="true"{{ end }}>
       {{- range $items }}
+      {{- $i := . }}{{ if and $trm (eq .clave "trm") }}{{ $i = merge . $trm }}{{ end }}
+      {{- with $i }}
       {{- $enlace := .enlace | default "" }}
       {{- $corte := .corte | default "" }}
       {{- $titulo := .fuente | default "" }}
@@ -27,6 +66,7 @@
       </a>
       {{- else }}
       </span>
+      {{- end }}
       {{- end }}
       {{- end }}
     </div>

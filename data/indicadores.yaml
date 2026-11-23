@@ -1,5 +1,6 @@
 # Franja de indicadores (parcial layouts/_partials/franja.html).
-# Se actualiza a mano. Regla: ninguna cifra sin `corte` y sin `fuente`.
+# Se actualiza a mano, salvo la TRM: la franja la lee de datos.gov.co al construir y lo que hay
+# aquí es solo el respaldo si esa lectura falla (ver franja.html). Regla: ninguna cifra sin `corte` y sin `fuente`.
 # Una entrada sin `valor` no se muestra; así la franja nunca enseña un dato viejo por descuido.
 #
 # valor:      la cifra tal como debe leerse, con unidad ("4.102", "4,9 %", "US$ 72,4")
@@ -12,10 +13,10 @@
 indicadores:
   - clave: trm
     nombre: TRM
-    valor: "$ 3.316,70"
-    variacion: "0,45 %"
+    valor: "$ 3.461,92"
+    variacion: "1,37 %"
     sentido: sube
-    corte: "17 nov 2026"
+    corte: "21–23 nov 2026"
     fuente: Banco de la República
     # 22-nov-2026: banrep.gov.co/es/estadisticas/trm da 404; la serie oficial abierta es esta.
     enlace: https://www.datos.gov.co/Econom-a-y-Finanzas/Tasa-de-Cambio-Representativa-del-Mercado-TRM/32sa-8pi3

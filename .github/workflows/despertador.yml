@@ -7,7 +7,7 @@ name: despertador
 on:
   schedule:
     - cron: '5 11 * * 1'      # lunes 6:05 a. m. Bogotá — boletín quincenal (corre todos los lunes; si no hay nada nuevo, no cambia nada)
-    # - cron: '30 0 * * 2-6'  # 7:30 p. m. Bogotá de lunes a viernes — TRM del día siguiente (activar cuando la franja lea la API)
+    - cron: '30 0 * * 2-6'    # 7:30 p. m. Bogotá de lunes a viernes — TRM del día siguiente (activo desde el 23-nov-2026: la franja lee la API al construir)
   workflow_dispatch:          # botón «Run workflow» en GitHub → Actions, para disparar a mano
 jobs:
   reconstruir:
