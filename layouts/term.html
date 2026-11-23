@@ -1,9 +1,14 @@
 {{ define "main" }}
+{{- /* Página de tema. Si existe content/tags/<etiqueta>/_index.md, de ahí salen el nombre
+       bien escrito (title), la descripción para buscadores (description, la usa head.html)
+       y el texto de entrada (cuerpo). Sin ese archivo, la página sale como antes: nombre
+       de la etiqueta y lista de piezas. */ -}}
 <section class="listado">
   <div class="listado__interior">
     <header class="listado__cabecera">
-      <p class="rotulo">Etiqueta</p>
+      <p class="rotulo">Tema</p>
       <h1 class="listado__titulo">{{ .Title }}</h1>
+      {{- with .Content }}<div class="prosa">{{ . }}</div>{{ end }}
     </header>
     {{- range .Pages }}
     {{ partial "tarjeta.html" . }}

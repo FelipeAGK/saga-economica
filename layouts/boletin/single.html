@@ -70,8 +70,8 @@
   {{- with .Params.tags }}
   <footer class="pieza__interior pieza__pie">
     <p class="etiquetas-linea">
-      <span class="rotulo">Etiquetas</span>
-      {{- range . }}<a class="etiqueta" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ . }}</a>{{ end }}
+      <span class="rotulo">Temas</span>
+      {{- range . }}<a class="etiqueta" href="{{ (printf "/tags/%s/" (urlize .)) | relURL }}">{{ with site.GetPage (printf "/tags/%s" (urlize .)) }}{{ .Title }}{{ else }}{{ . }}{{ end }}</a>{{ end }}
     </p>
   </footer>
   {{- end }}
