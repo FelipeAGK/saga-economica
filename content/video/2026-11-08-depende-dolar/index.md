@@ -12,6 +12,7 @@ poster = 'poster.jpg'
 formato = 'vertical'
 duracion = '0:47'
 publicado = '23 de noviembre de 2026'
+subido = '2026-11-23T06:04:48-05:00'   # fecha y hora de subida a YouTube (uploadDate, hora de Bogotá), leída el 24-nov-2026; va al dato estructurado
 lastmod = '2026-11-23T10:00:00-05:00'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).

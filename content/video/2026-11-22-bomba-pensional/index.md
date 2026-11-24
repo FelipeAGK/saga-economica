@@ -10,6 +10,7 @@ tema = 'Pensiones'
 youtube = '6n-pkRZT7KM'
 duracion = '5:43'
 publicado = '4 de junio de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+subido = '2026-06-04T07:44:11-05:00'   # fecha y hora de subida a YouTube (uploadDate, hora de Bogotá), leída el 24-nov-2026; va al dato estructurado
 lista = 'verdad'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).

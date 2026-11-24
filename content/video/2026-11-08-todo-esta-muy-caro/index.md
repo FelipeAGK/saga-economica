@@ -10,6 +10,7 @@ tema = 'Precios y salarios'
 youtube = 'd0Xckq3PgKw'
 duracion = '4:47'
 publicado = '7 de julio de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+subido = '2026-07-07T09:04:58-05:00'   # fecha y hora de subida a YouTube (uploadDate, hora de Bogotá), leída el 24-nov-2026; va al dato estructurado
 lista = 'verdad'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).

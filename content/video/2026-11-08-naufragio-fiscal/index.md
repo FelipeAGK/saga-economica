@@ -10,6 +10,7 @@ tema = 'Finanzas públicas'
 youtube = 'EobM-gDRgek'
 duracion = '7:32'
 publicado = '17 de abril de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+subido = '2026-04-17T17:33:09-05:00'   # fecha y hora de subida a YouTube (uploadDate, hora de Bogotá), leída el 24-nov-2026; va al dato estructurado
 lista = 'verdad'
 con = 'Julio César Iglesias'
 

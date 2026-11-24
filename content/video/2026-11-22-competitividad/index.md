@@ -11,6 +11,7 @@ tema = 'Competitividad'
 youtube = 'bq3iiA8K5Xs'
 duracion = '10:36'
 publicado = '30 de septiembre de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+subido = '2026-09-30T17:26:15-05:00'   # fecha y hora de subida a YouTube (uploadDate, hora de Bogotá), leída el 24-nov-2026; va al dato estructurado
 con = 'Ana Fernanda Maiguashca'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).

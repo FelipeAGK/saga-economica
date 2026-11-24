@@ -33,10 +33,16 @@
   {{- $ld = dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.BaseURL "description" site.Params.descripcion "inLanguage" "es-CO" "publisher" $org }}
 {{- else if .IsPage }}
   {{- $tipo := cond (eq .Section "video") "VideoObject" "Article" }}
-  {{- $ld = dict "@context" "https://schema.org" "@type" $tipo "headline" .Title "description" $desc "url" .Permalink "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-CO" "publisher" $org "image" ("img/saga-og.png" | absURL) }}
+  {{- $ld = dict "@context" "https://schema.org" "@type" $tipo "headline" .Title "description" $desc "url" .Permalink "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00") "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00") "inLanguage" "es-CO" "publisher" $org "image" ("img/saga-og.png" | absURL) }}
   {{- with .Params.autor }}{{ with index site.Data.autores . }}{{ $ld = merge $ld (dict "author" (dict "@type" "Person" "name" .nombre)) }}{{ end }}{{ else }}{{ $ld = merge $ld (dict "author" $org) }}{{ end }}
   {{- if eq $tipo "VideoObject" }}
-    {{- with .Params.youtube }}{{ $ld = merge $ld (dict "embedUrl" (printf "https://www.youtube-nocookie.com/embed/%s" .) "thumbnailUrl" (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .) "uploadDate" ($.Date.Format "2006-01-02")) }}{{ end }}
+    {{- with .Params.youtube }}{{ $ld = merge $ld (dict "embedUrl" (printf "https://www.youtube-nocookie.com/embed/%s" .) "thumbnailUrl" (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .) "uploadDate" ($.Params.subido | default ($.Date.Format "2006-01-02T15:04:05-07:00"))) }}{{ end }}
+    {{- /* Duración en ISO 8601 a partir de `duracion = 'm:ss'` (o 'h:mm:ss'). */}}
+    {{- with .Params.duracion }}{{ $p := split . ":" }}{{ $iso := "" }}
+      {{- if eq (len $p) 2 }}{{ $iso = printf "PT%dM%dS" (int (strings.TrimLeft "0" (index $p 0) | default "0")) (int (strings.TrimLeft "0" (index $p 1) | default "0")) }}{{ end }}
+      {{- if eq (len $p) 3 }}{{ $iso = printf "PT%dH%dM%dS" (int (strings.TrimLeft "0" (index $p 0) | default "0")) (int (strings.TrimLeft "0" (index $p 1) | default "0")) (int (strings.TrimLeft "0" (index $p 2) | default "0")) }}{{ end }}
+      {{- with $iso }}{{ $ld = merge $ld (dict "duration" .) }}{{ end }}
+    {{- end }}
     {{- $ld = merge $ld (dict "name" .Title) }}
   {{- end }}
 {{- end }}

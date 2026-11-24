@@ -10,6 +10,7 @@ tema = 'Vivienda'
 youtube = 'KL1snZ3iGGo'
 duracion = '5:10'
 publicado = '29 de junio de 2026'   # fecha de publicación en YouTube (datePublished), verificada el 22-nov-2026
+subido = '2026-06-29T10:46:36-05:00'   # fecha y hora de subida a YouTube (uploadDate, hora de Bogotá), leída el 24-nov-2026; va al dato estructurado
 lista = 'verdad'
 
 # Lo que el video no muestra: cada cifra con corte y fuente (S1).
