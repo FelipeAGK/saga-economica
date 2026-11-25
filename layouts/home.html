@@ -20,7 +20,7 @@
 {{- $imagenDest := "" }}{{ $verbo := "Leer" }}
 {{- with $destacado }}
   {{- $pg := . }}
-  {{- if eq .Section "analisis" }}{{ with index (.Resources.Match "*.svg") 0 }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ if .Params.invitado }}{{ $imagenDest = site.Params.imagen_opinion | relURL }}{{ end }}{{ $verbo = "Leer el análisis" }}
+  {{- if eq .Section "analisis" }}{{ with index (.Resources.Match "*.svg") 0 }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ if or .Params.invitado .Params.columna }}{{ $imagenDest = site.Params.imagen_opinion | relURL }}{{ end }}{{ $verbo = "Leer el análisis" }}
   {{- else if eq .Section "boletin" }}{{ with .Params.caratula }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer el boletín" }}
   {{- else if eq .Section "video" }}{{ with .Params.poster }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ if not $imagenDest }}{{ with .Params.youtube }}{{ with try (resources.GetRemote (printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" .)) }}{{ with .Err }}{{ else with .Value }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ end }}{{ end }}{{ $verbo = "Ver el video" }}
   {{- else if eq .Section "cultura" }}{{ with .Params.imagen }}{{ with $pg.Resources.GetMatch . }}{{ $imagenDest = .RelPermalink }}{{ end }}{{ end }}{{ $verbo = "Leer la recomendación" }}
@@ -37,7 +37,7 @@
 <section class="inicio inicio--arriba">
   <div class="inicio__interior arriba">
     {{- with $destacado }}
-    <article class="destacado destacado--{{ .Section }}{{ if .Params.invitado }} destacado--opinion{{ end }}">
+    <article class="destacado destacado--{{ .Section }}{{ if or .Params.invitado .Params.columna }} destacado--opinion{{ end }}">
       <a class="destacado__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">
         {{- with $imagenDest }}<img src="{{ . }}" alt="" width="1200" height="700" loading="eager">{{ end }}
       </a>
@@ -88,7 +88,7 @@
       {{- range first 3 $otros.ByDate.Reverse }}
       {{- $g := index (.Resources.Match "*.svg") 0 }}
       <article class="ficha-inicio">
-        {{- if .Params.invitado }}
+        {{- if or .Params.invitado .Params.columna }}
         <a class="ficha-inicio__imagen ficha-inicio__imagen--opinion" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1"><img src="{{ site.Params.imagen_opinion | relURL }}" alt="" width="600" height="350" loading="lazy"></a>
         {{- else }}
         <a class="ficha-inicio__imagen" href="{{ .RelPermalink }}" aria-hidden="true" tabindex="-1">{{ with $g }}<img src="{{ .RelPermalink }}" alt="" width="600" height="350" loading="lazy">{{ end }}</a>

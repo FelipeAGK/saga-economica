@@ -15,6 +15,7 @@
   {{- else }}
   <p class="firma__nombre">{{ . }}</p>
   {{- end }}
-  {{- if $.Params.invitado }}<p class="firma__nota">Los columnistas invitados expresan su opinión, no la de Saga.</p>{{ end }}
+  {{- /* Toda columna de opinión lleva aviso, la escriba quien la escriba (decisión del 25-nov-2026). */}}
+  {{- if or $.Params.invitado $.Params.columna }}<p class="firma__nota">Los columnistas expresan su opinión, no la de Saga.</p>{{ end }}
 </section>
 {{- end }}

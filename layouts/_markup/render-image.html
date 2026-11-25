@@ -1,8 +1,10 @@
-{{- /* Toda imagen del Markdown sale como figura encuadrada; el texto alt se
-       vuelve pie de figura. Los recursos del bundle se resuelven por nombre. */ -}}
+{{- /* Toda imagen del Markdown sale como figura encuadrada. El pie de figura es el título
+       de la imagen, si lo trae —![alt](archivo "pie con [enlace](url)")—, y admite Markdown;
+       si no, el texto alt, como siempre. Los recursos del bundle se resuelven por nombre. */ -}}
 {{- $src := .Destination }}
 {{- with .Page.Resources.Get .Destination }}{{ $src = .RelPermalink }}{{ end }}
 <figure class="figura">
   <img src="{{ $src }}" alt="{{ .Text }}" loading="lazy">
-  {{- with .Text }}<figcaption>{{ . }}</figcaption>{{ end }}
+  {{- with .Title }}<figcaption>{{ . | $.Page.RenderString }}</figcaption>
+  {{- else with .Text }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>

@@ -190,3 +190,114 @@ trm:
   en_colombia: "$ 3.237,83 por dólar, vigente del 7 al 9 de noviembre de 2026; había tocado $ 3.349,63 el 29 de septiembre."
   origen: /video/depende-dolar/
   ver: [pesos-constantes]
+
+iva:
+  termino: Impuesto al valor agregado (IVA)
+  corta: Impuesto que se paga al comprar bienes y servicios; el vendedor lo cobra y se lo entrega al Estado.
+  definicion: >-
+    Es un impuesto al consumo: se cobra como un porcentaje del precio cada vez
+    que se vende un bien o un servicio, y quien lo termina pagando es el
+    comprador final. Todos pagan la misma tarifa por el mismo producto, ganen
+    lo que ganen, y por eso pesa más en los hogares que gastan casi todo su
+    ingreso. Para aliviar ese efecto hay dos caminos: dejar los productos
+    básicos sin IVA o con tarifa reducida, o cobrarlo y devolverles una parte a
+    los hogares de menores ingresos.
+  en_colombia: La tarifa general es de 19 %. Tras mantener la canasta básica sin IVA, el CARF estima que el IVA de la Ley de Rescate Económico dejaría entre $7,3 y $11,9 billones netos al año entre 2028 y 2030 (Pronunciamiento N.º 20, noviembre de 2026).
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [compensacion-del-iva, recaudo-bruto]
+
+compensacion-del-iva:
+  termino: Compensación del IVA
+  corta: Devolución de parte del IVA a los hogares de menores ingresos.
+  definicion: >-
+    Es un mecanismo para corregir que el IVA pese más sobre quienes menos
+    tienen. En lugar de dejar un producto sin impuesto para todos —también para
+    los hogares de mayores ingresos—, se cobra el IVA y se les devuelve a los
+    hogares de menores ingresos una suma que cubre lo que pagaron. Colombia lo
+    aplica desde 2020 con el programa de Devolución del IVA.
+  en_colombia: La Ley de Rescate Económico propone EfectIVA desde 2028, una devolución para 35 millones de personas (68 % de la población); el CARF estima su costo entre $16,7 y $22,9 billones al año (Pronunciamiento N.º 20, noviembre de 2026).
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [iva]
+
+carf:
+  termino: Comité Autónomo de la Regla Fiscal (CARF)
+  corta: Organismo técnico e independiente que vigila el cumplimiento de la regla fiscal.
+  definicion: >-
+    Es un comité de expertos, independiente del Gobierno, creado por la Ley
+    2155 de 2021 para hacerle seguimiento a la regla fiscal. Revisa las cuentas
+    y proyecciones del Ministerio de Hacienda, hace las suyas y dice en público
+    si cuadran. No decide ni tiene veto; su peso está en que sus
+    pronunciamientos son técnicos y abiertos.
+  en_colombia: En su Pronunciamiento N.º 20, del 23 de noviembre de 2026, calculó que sin ajuste la deuda neta del Gobierno llegaría a 91,2 % del PIB en 2030.
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [regla-fiscal, deficit-fiscal, deuda-neta]
+
+deficit-fiscal:
+  termino: Déficit fiscal
+  corta: Lo que le falta al Gobierno en un año cuando gasta más de lo que recibe.
+  definicion: >-
+    Es la diferencia entre los gastos y los ingresos del Gobierno en un año,
+    cuando los gastos son mayores. Incluye los intereses de la deuda, a
+    diferencia del balance primario, que los deja por fuera. Lo que falta se
+    cubre con deuda nueva, así que un déficit que se repite año tras año es
+    deuda que crece.
+  en_colombia: Fue de 6,4 % del PIB en 2025 para el Gobierno Nacional Central (dato preliminar del Ministerio de Hacienda, Actualización del Plan Financiero 2026).
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [balance-primario, gnc, recursos-de-credito]
+
+calificacion-de-riesgo:
+  termino: Calificación de riesgo
+  corta: Nota que las agencias calificadoras le ponen a la deuda de un país según qué tan probable es que la pague.
+  definicion: >-
+    Es la opinión de una agencia calificadora —las más conocidas son S&P,
+    Moody's y Fitch— sobre la capacidad de un gobierno para pagar su deuda a
+    tiempo. Funciona como una escala de notas: por encima de cierto nivel la
+    deuda tiene «grado de inversión» y por debajo se considera especulativa.
+    Importa porque muchos fondos solo pueden comprar deuda con grado de
+    inversión, y porque una nota más baja se traduce en intereses más altos.
+  en_colombia: S&P y Fitch le retiraron a Colombia el grado de inversión en 2021.
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [deficit-fiscal]
+
+gasto-publico:
+  termino: Gasto público
+  corta: Todo lo que gasta el Estado en un año, incluidos los intereses de la deuda.
+  definicion: >-
+    Es el total de lo que el Estado paga en un año: salarios y funcionamiento
+    de las entidades, transferencias a salud, educación, pensiones y regiones,
+    inversión, e intereses de la deuda. Si se le quitan los intereses queda el
+    gasto primario, que es la parte que un gobierno decide en el presente.
+  en_colombia: El gasto primario del Gobierno Nacional Central fue de 19,9 % del PIB en 2025; en 2005 era de 14,6 %.
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [gasto-primario, gnc]
+
+deuda-neta:
+  termino: Deuda bruta y deuda neta
+  corta: La bruta es todo lo que el Gobierno debe; la neta le resta la plata que tiene en caja y otros activos financieros.
+  definicion: >-
+    La deuda bruta es el total de lo que el Gobierno debe. La deuda neta es esa
+    misma cifra menos sus activos financieros, sobre todo la plata que tiene en
+    caja y en cuentas: si debe 100 y tiene 8 guardados, su deuda bruta es 100 y
+    la neta es 92. La regla fiscal colombiana se mide con la deuda neta, y por
+    eso es la que usa el CARF. Ninguna de las dos es una deuda «sin intereses»:
+    los intereses no hacen parte del saldo, son lo que se paga cada año por
+    tenerlo.
+  en_colombia: Sin ajuste fiscal, la deuda neta del Gobierno Nacional Central pasaría de 60,2 % del PIB en 2026 a 91,2 % en 2030; con la Ley de Rescate Económico llegaría a 78,1 % (CARF, Pronunciamiento N.º 20, noviembre de 2026).
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [intereses-de-la-deuda, regla-fiscal, gnc]
+
+intereses-de-la-deuda:
+  termino: Intereses de la deuda
+  corta: Lo que el Gobierno paga cada año por tener deuda; no reduce lo que debe.
+  definicion: >-
+    Son el costo anual de la deuda: lo que el Gobierno les paga a quienes le
+    prestaron, sin contar la devolución del préstamo. Pagarlos no baja el saldo
+    de la deuda, igual que pagar solo los intereses de una tarjeta no reduce lo
+    que se debe. Cuando las cuentas se miran «sin intereses» se está hablando
+    del balance primario, que compara ingresos y gastos dejando ese pago por
+    fuera; no existe una «deuda sin intereses». Entre más alta la deuda y peor
+    la calificación de riesgo, más intereses se pagan y menos queda para todo
+    lo demás.
+  en_colombia: Sin ajuste fiscal, el gasto en intereses llegaría a cerca de la mitad de los ingresos tributarios hacia 2030 (CARF, Pronunciamiento N.º 20, noviembre de 2026).
+  origen: /analisis/optimistas-o-cansados-discusion-fiscal/
+  ver: [balance-primario, deuda-neta, calificacion-de-riesgo]
