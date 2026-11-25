@@ -7,7 +7,7 @@
     </header>
     <ul class="etiquetas">
       {{- range .Pages.ByTitle }}
-      <li><a class="etiqueta" href="{{ .RelPermalink }}">{{ .Title }} <span>{{ len .Pages }}</span></a></li>
+      <li><a class="etiqueta" href="{{ .RelPermalink }}">{{ .LinkTitle }} <span>{{ len .Pages }}</span></a></li>
       {{- end }}
     </ul>
   </div>

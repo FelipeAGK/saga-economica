@@ -163,7 +163,7 @@
     <div class="caja caja--temas">
       <p class="inicio__rotulo">Temas</p>
       <p class="etiquetas-linea etiquetas-linea--suelta">
-        {{- range sort . "c" "desc" }}<a class="etiqueta" href="{{ .p.RelPermalink }}">{{ .p.Title }}</a>{{ end }}
+        {{- range sort . "c" "desc" }}<a class="etiqueta" href="{{ .p.RelPermalink }}">{{ .p.LinkTitle }}</a>{{ end }}
       </p>
     </div>
     {{- end }}

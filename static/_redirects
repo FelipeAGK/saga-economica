@@ -3,4 +3,6 @@
 /tags/video/    /video/                    301
 /tags/boletin/  /boletin/                  301
 /tags/trm/      /tags/dolar/               301
-/tags/reforma/  /tags/reforma-tributaria/  301
+/tags/reforma/  /tags/ley-de-rescate-economico/  301
+# 25-nov-2026: la etiqueta de la reforma pasa a llevar el nombre de la ley.
+/tags/reforma-tributaria/  /tags/ley-de-rescate-economico/  301
