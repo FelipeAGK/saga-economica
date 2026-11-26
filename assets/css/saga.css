@@ -214,6 +214,8 @@ h1, h2, h3, h4 { font-family: var(--titulos); letter-spacing: -0.015em; line-hei
 .figura { margin: 1.8em 0; background: var(--superficie); border: 1px solid var(--linea); }
 .figura img { display: block; width: 100%; padding: 18px 20px 10px; }
 .figura figcaption { padding: 12px 20px 16px; border-top: 1px solid var(--linea-suave); font-size: 14px; line-height: 1.55; color: var(--tinta-2); }
+/* figura angosta: capturas y verticales que a todo el ancho quedan muy altas (![alt](x.jpg#angosta)) */
+@media (min-width: 641px) { .figura--angosta { width: 60%; margin-left: auto; margin-right: auto; } }
 
 /* --- rail --------------------------------------------------------------- */
 .rail__bloque { font-size: 14px; line-height: 1.6; color: var(--tinta-2); }

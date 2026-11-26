@@ -1,9 +1,17 @@
 {{- /* Toda imagen del Markdown sale como figura encuadrada. El pie de figura es el título
        de la imagen, si lo trae —![alt](archivo "pie con [enlace](url)")—, y admite Markdown;
-       si no, el texto alt, como siempre. Los recursos del bundle se resuelven por nombre. */ -}}
+       si no, el texto alt, como siempre. Los recursos del bundle se resuelven por nombre.
+       Variante: ![alt](archivo.jpg#angosta "pie") añade la clase figura--angosta (60 % de la
+       columna, centrada; en celular, ancho completo). Solo para archivos del sitio. */ -}}
 {{- $src := .Destination }}
-{{- with .Page.Resources.Get .Destination }}{{ $src = .RelPermalink }}{{ end }}
-<figure class="figura">
+{{- $clase := "figura" }}
+{{- $u := urls.Parse .Destination }}
+{{- if and $u.Fragment (not $u.Scheme) }}
+  {{- $clase = printf "figura figura--%s" $u.Fragment }}
+  {{- $src = strings.TrimSuffix (printf "#%s" $u.Fragment) .Destination }}
+{{- end }}
+{{- with .Page.Resources.Get $src }}{{ $src = .RelPermalink }}{{ end }}
+<figure class="{{ $clase }}">
   <img src="{{ $src }}" alt="{{ .Text }}" loading="lazy">
   {{- with .Title }}<figcaption>{{ . | $.Page.RenderString }}</figcaption>
   {{- else with .Text }}<figcaption>{{ . }}</figcaption>{{ end }}
